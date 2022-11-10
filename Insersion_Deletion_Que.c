@@ -27,7 +27,7 @@ int main()
     case 1:
         printf("\n\nEnter a Data You Want To Enter: ");
         scanf("%d", &data);
-        if (rear <= size - 1)
+        if (rear <= size)
         {
 
             rear++;
