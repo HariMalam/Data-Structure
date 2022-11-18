@@ -15,10 +15,10 @@ int main()
         a = 0;
         while (a == 0)
         {
-            printf("\nSelect Option For Operation:\n1.PUSH\n2.POP\n3.PEEP\n4.PEEK\n");
+            printf("\nSelect Option For Operation:\n1.PUSH\n2.POP\n3.PEEP\n4.PEEK\n5.Close\n");
             scanf("%d", &a);
 
-            if (a > 4 || a < 1)
+            if (a > 5 || a < 1)
             {
                 printf("Please Select Valid Option !\n");
                 a = 0;
@@ -143,10 +143,16 @@ int main()
 
             break;
         case 4:
-        
-
+            z = 1;
+            if (Top <= -1)
+            {
+                printf("Stack is Underflow\n");
+            }
+            else
+            {
+                printf("Top Most Element in Stack is %d\n", S[Top]);
+            }
             break;
-
         default:
             break;
         }
@@ -158,5 +164,4 @@ int main()
     }
     printf("\nLove You !");
     printf("\nThank You For Executing My Program...");
-
 }
