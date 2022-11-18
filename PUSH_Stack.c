@@ -5,7 +5,7 @@ int main()
     int S[1000], Top = -1, N, Data;
 
     // Get input for size of stack
-    printf("Enter Size Of Stack[Max:100]: ");
+    printf("Enter Size Of Stack[Max:1000]: ");
     scanf("%d", &N);
 
     // Check for Overflow Condition

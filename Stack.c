@@ -1,9 +1,9 @@
 #include <stdio.h>
 int main()
 {
-    int a, i, j, k, z;
-    // S: Stack, Top: Current Pointer, N: Size Of Stack, Data: New Element to be Added
-    int S[1000], Top = -1, N, Data;
+    int a, i, j, k, z, u, p;
+    // S: Stack, Tos: Current Pointer, N: Size Of Stack, Data: New Element to be Added
+    int S[1000], Tos = -1, N, Data;
 
     // Get input for size of stack
     printf("Enter Size Of Stack[Max:1000]: ");
@@ -31,7 +31,7 @@ int main()
             while (i == 0)
             {
                 // Check for Overflow Condition
-                if (Top >= N - 1)
+                if (Tos >= N - 1)
                 {
                     printf("Stack Overflow");
                     z = 0;
@@ -44,13 +44,13 @@ int main()
                     printf("Enter New Element: ");
                     scanf("%d", &Data);
 
-                    // Updating Top Pointer
-                    Top++;
+                    // Updating Tos Pointer
+                    Tos++;
 
                     // Putting New Element in the stack
-                    S[Top] = Data;
+                    S[Tos] = Data;
                     printf("\nStack After PUSH Operation:\n");
-                    for (i = Top; i >= 0; i--)
+                    for (i = Tos; i >= 0; i--)
                     {
                         printf("%d\n", S[i]);
                     }
@@ -91,7 +91,7 @@ int main()
             i = 0;
             while (i == 0)
             {
-                if (Top <= -1)
+                if (Tos <= -1)
                 {
                     printf("Stack is Underflow");
                     z = 1;
@@ -100,16 +100,15 @@ int main()
 
                 else
                 {
-                    printf("\nDeleted Element is %d", S[Top]);
-                    Top--;
+                    printf("\nDeleted Element is %d", S[Tos]);
+                    Tos--;
                     printf("\nStack After POP Operation: \n");
-                    for (i = Top; i >= 0; i--)
+                    for (i = Tos; i >= 0; i--)
                     {
                         printf("%d\n", S[i]);
                     }
                 }
                 k = 0;
-
                 while (k == 0)
                 {
                     printf("\nYour Want To POP Again ? \n1.Yes \n2.Close\n3.Back\n");
@@ -140,17 +139,73 @@ int main()
             }
             break;
         case 3:
+            u = 0;
+            while (u == 0)
+            {
+                p = 1;
+                printf("\nEnter Element You Want To Find: ");
+                scanf("%d", &Data);
+                for (int i = 0; i <= Tos; i++)
+                {
+                    if (S[i] == Data)
+                    {
+                        p = i;
+                        break;
+                    }
+                    else
+                    {
+                        p = 1;
+                    }
+                }
+                if (p == 1)
+                {
+                    printf("\n%d Element Doesn't Match in stack!\n\n", Data);
+                }
+                else
+                {
+                    printf("\nElement Match in stack!\n");
+                    printf("%d Found At Position(Pointer): %d\n\n", Data, p);
+                }
+
+                k = 0;
+                while (k == 0)
+                {
+                    k = 1;
+
+                    printf("You Want To Search Again?\n1.Yes\n2.Close\n3.Back\n");
+                    scanf("%d", &u);
+
+                    if (u == 1)
+                    {
+                        u = 0;
+                    }
+                    else if (u == 2)
+                    {
+                        u = 1;
+                    }
+                    else if (u == 3)
+                    {
+                        z = 1;
+                    }
+
+                    else
+                    {
+                        printf("\nPlease Select Valid Option !\n");
+                        k = 0;
+                    }
+                }
+            }
 
             break;
         case 4:
             z = 1;
-            if (Top <= -1)
+            if (Tos <= -1)
             {
                 printf("Stack is Underflow\n");
             }
             else
             {
-                printf("Top Most Element in Stack is %d\n", S[Top]);
+                printf("Top Most Element in Stack is %d\n", S[Tos]);
             }
             break;
         default:
@@ -158,7 +213,7 @@ int main()
         }
     }
     printf("\n\nFinal Stack After Operations:\n");
-    for (i = Top; i >= 0; i--)
+    for (i = Tos; i >= 0; i--)
     {
         printf("%d\n", S[i]);
     }
