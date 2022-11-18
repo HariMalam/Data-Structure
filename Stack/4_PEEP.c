@@ -6,6 +6,13 @@ int main()
     scanf("%d", &Top);
     Top--;
 
+    int i;
+    for (i = 0; i <= Top; i++)
+    {
+        printf("Enter Element at Top[%d]: ", i);
+        scanf("%d", &S[i]);
+    }
+
     int u = 0, p;
     while (u == 0)
     {
