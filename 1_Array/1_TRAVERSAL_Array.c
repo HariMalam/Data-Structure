@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int A[100], N, LB=0, UB=0;
+    int A[100], N, LB = 0, UB = 0;
     int i;
     printf("Enter How Many Element You Want in Array[Max:100]: ");
     scanf("%d", &N);
@@ -14,9 +14,9 @@ int main()
     }
 
     printf("\nTraversing Array:\n");
-    for(i=LB;i<=UB;i++)
+    for (i = LB; i < UB; i++)
     {
-        printf("%d ",i);
+        printf("%d ", A[i]);
     }
     return 0;
 }
