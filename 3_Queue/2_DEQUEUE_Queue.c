@@ -11,38 +11,60 @@ int main()
     scanf("%d", &Rear);
     Rear--;
 
-    for (int i = 0; i <= Rear; i++)
+    if (Rear < N)
     {
-        Front = 0;
-        printf("Enter Element: ");
-        scanf("%d", &Q[i]);
-    }
-
-    if (Front == -1)
-    {
-        printf("\nQueue is Underflow !");
-    }
-
-    else
-    {
-        Data = Q[Front];
-        if (Front == Rear)
+        for (int i = 0; i <= Rear; i++)
         {
-            Front = -1;
-            Rear = -1;
+
+            Front = 0;
+            printf("Enter Element: ");
+            scanf("%d", &Q[i]);
         }
+
+                printf("\nQueue Before ENQUEUE Operation:");
+                printf("\nFront=%d", Front);
+                printf("\nRear=%d\n", Rear);
+                printf("Queue: ");
+        for (int i = Front; i <= Rear; i++)
+        {
+            if (Rear != -1)
+                printf("%d ", Q[i]);
+            else
+                printf("Empty");
+        }
+
+        if (Front == -1)
+        {
+            printf("\nQueue is Underflow !");
+        }
+
         else
         {
-            Front++;
+            Data = Q[Front];
+            if (Front == Rear)
+            {
+                Front = -1;
+                Rear = -1;
+            }
+            else
+            {
+                Front++;
+            }
+                printf("\n\nQueue After ENQUEUE Operation:");
+                printf("\nFront=%d", Front);
+                printf("\nRear=%d\n", Rear);
+                printf("Queue: ");
+            for (int i = Front; i <= Rear; i++)
+            {
+                if (Rear != -1)
+                    printf("%d ", Q[i]);
+                else
+                    printf("Empty");
+            }
         }
     }
-
-    printf("\nQueue After DEQUEUE Operation:\n");
-    for (int i = Front; i <= Rear; i++)
-    {
-        if (Rear != -1)
-            printf("%d ", Q[i]);
-    }
+    else
+        printf("Please Enter Valid Size Of Queue !");
 
     return 0;
 }

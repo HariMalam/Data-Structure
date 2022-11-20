@@ -7,39 +7,56 @@ int main()
     scanf("%d", &N);
 
     printf("Please Enter How Many Elements You Want To Enter: ");
-    scanf("%d",&Rear);
+    scanf("%d", &Rear);
     Rear--;
-
-    for (int i = 0; i <= Rear; i++)
+    if (Rear < N)
     {
-        Front=0;
-        printf("Enter Element: ");
-        scanf("%d",&Q[i]);
-    }
-    
+        for (int i = 0; i <= Rear; i++)
+        {
 
-    printf("Enter Element You Want To ENQUEUE: ");
-    scanf("%d", &Data);
+            Front = 0;
+            printf("Enter Element: ");
+            scanf("%d", &Q[i]);
+        }
 
-    if(Front==-1)
-    {
-        Front=0;
-    }
+        printf("\nQueue Before ENQUEUE Operation:");
+        printf("\nFront=%d", Front);
+        printf("\nRear=%d\n", Rear);
+        printf("Queue: ");
+        for (int i = Front; i <= Rear; i++)
+        {
+            if (Rear == -1)
+                printf("Empty");
+            else
+                printf("%d ", Q[i]);
+        }
+        if (Rear >= N - 1)
+        {
+            printf("\nQueue is Overflow !");
+        }
+        else
+        {
+            printf("\n\nEnter Element You Want To ENQUEUE: ");
+            scanf("%d", &Data);
+            Rear++;
+            Q[Rear] = Data;
+            if (Front = -1)
+                Front = 0;
 
-    if (Rear >= N - 1)
-    {
-        printf("Queue is Overflow !");
+            printf("\nQueue After ENQUEUE Operation:");
+            printf("\nFront=%d", Front);
+            printf("\nRear=%d\n", Rear);
+            printf("Queue: ");
+            for (int i = Front; i <= Rear; i++)
+            {
+                if (Rear == -1)
+                    printf("Empty");
+                else
+                    printf("%d ", Q[i]);
+            }
+        }
     }
     else
-    {
-        Rear++;
-        Q[Rear] = Data;
-    }
-    printf("\nQueue After ENQUEUE Operation:\n");
-    for(int i=Front;i<=Rear;i++)
-    {
-        printf("%d ",Q[i]);
-    }
-
+        printf("Please Enter Valid Size Of Queue !");
     return 0;
 }
