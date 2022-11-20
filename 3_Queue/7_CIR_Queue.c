@@ -27,15 +27,17 @@ int main()
             while (a == 1)
             {
                 a = 0;
-
                 // Start
-
-                printf("\nQueue Before ENQUEUE Operation:\n");
+                printf("\nQueue Before ENQUEUE Operation:");
+                printf("\nFront=%d", Front);
+                printf("\nRear=%d\n", Rear);
+                printf("Queue: ");
                 i = Front;
-                while (i >= 0)
+                while (i >= -1)
                 {
                     if (i == -1)
                     {
+                        printf("Empty");
                         break;
                     }
                     else if (i == Rear)
@@ -62,7 +64,7 @@ int main()
                 }
                 else
                 {
-                    printf("\nEnter Element You Want To ENQUEUE: ");
+                    printf("\n\nEnter Element You Want To ENQUEUE: ");
                     scanf("%d", &Data);
 
                     if (Front == -1)
@@ -80,14 +82,16 @@ int main()
                         Q[Rear] = Data;
                     }
 
-                    printf("\nQueue After DEQUEUE Operation:");
+                    printf("\nQueue After ENQUEUE Operation:");
                     printf("\nFront=%d", Front);
                     printf("\nRear=%d\n", Rear);
+                    printf("Queue: ");
                     i = Front;
-                    while (i >= 0)
+                    while (i >= -1)
                     {
                         if (i == -1)
                         {
+                            printf("Empty");
                             break;
                         }
                         else if (i == Rear)
@@ -142,11 +146,40 @@ int main()
             while (a == 2)
             {
                 a = 0;
+                printf("\nQueue Before DEQUEUE Operation:");
+                printf("\nFront=%d", Front);
+                printf("\nRear=%d\n", Rear);
+                printf("Queue: ");
+                i = Front;
+                while (i >= -1)
+                {
+                    if (i == -1)
+                    {
+                        printf("Empty");
+                        break;
+                    }
+                    else if (i == Rear)
+                    {
+                        printf("%d ", Q[i]);
+                        break;
+                    }
+                    else if (i == N - 1)
+                    {
+
+                        printf("%d ", Q[i]);
+                        i = 0;
+                    }
+                    else
+                    {
+                        printf("%d ", Q[i]);
+                        i++;
+                    }
+                }
 
                 // Start
                 if (Front == -1)
                 {
-                    printf("Queue is Underflow !");
+                    printf("\n\nQueue is Underflow !");
                 }
                 else
                 {
@@ -167,14 +200,16 @@ int main()
                         Front++;
                     }
 
-                    printf("\nQueue After DEQUEUE Operation:");
+                    printf("\n\nQueue After DEQUEUE Operation:");
                     printf("\nFront=%d", Front);
                     printf("\nRear=%d\n", Rear);
+                    printf("Queue: ");
                     i = Front;
-                    while (i >= 0)
+                    while (i >= -1)
                     {
                         if (i == -1)
                         {
+                            printf("Empty");
                             break;
                         }
                         else if (i == Rear)
@@ -199,7 +234,7 @@ int main()
 
                 while (a == 0)
                 {
-                    printf("\nYour Want To CIR_DEQUEUE Again ? \n1.Yes \n2.Back\n3.Close\n");
+                    printf("\n\nYour Want To CIR_DEQUEUE Again ? \n1.Yes \n2.Back\n3.Close\n");
                     scanf("%d", &a);
                     if (a == 1)
                     {
