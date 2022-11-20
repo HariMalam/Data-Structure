@@ -13,8 +13,7 @@ int main()
         scanf("%d", &S[i]);
     }
 
-    int u = 0, p;
-    while (u == 0)
+    int p;
     {
         printf("Enter Element You Want To Find: ");
         scanf("%d", &Data);
@@ -37,18 +36,6 @@ int main()
         {
             printf("Element Match in stack!\n");
             printf("%d Found At Position(Pointer): %d", Data, p);
-        }
-
-        printf("You Want To Search Again?\n1.Yes2.Close");
-        scanf("%d", &u);
-
-        if (u == 1)
-        {
-            u = 0;
-        }
-        else if (u == 2)
-        {
-            u = 1;
         }
     }
     return 0;
