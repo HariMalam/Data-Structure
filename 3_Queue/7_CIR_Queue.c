@@ -6,12 +6,11 @@ int main()
     int Q[100], Front = -1, Rear = -1, N, Data;
     printf("Enter size of Queue: ");
     scanf("%d", &N);
-    int a;
-    int z = 0;
-    int i;
-    while (z == 0)
+
+    int a, i, z = 1;
+    while (z == 1)
     {
-        z = 1;
+        z = 0;
         printf("\nSelect Option For Operation In Circular Queue:\n");
         printf("1.CIR_ENQUEUE\n2.CIR_DEQUEUE\n3.Close\n");
         scanf("%d", &a);
@@ -26,7 +25,6 @@ int main()
         case 1:
             while (a == 1)
             {
-                a = 0;
                 printf("\nQueue Before CIR_ENQUEUE Operation:");
                 printf("\nFront=%d", Front);
                 printf("\nRear=%d\n", Rear);
@@ -111,6 +109,8 @@ int main()
                         }
                     }
                 }
+
+                a = 0;
                 while (a == 0)
                 {
                     printf("\n\nYour Want To CIR_ENQUEUE Again ? \n1.Yes \n2.Back\n3.Close\n");
@@ -121,12 +121,12 @@ int main()
                     }
                     else if (a == 2)
                     {
-                        a = 2;
-                        z = 0;
+                        a = 404;
+                        z = 1;
                     }
                     else if (a == 3)
                     {
-                        a = 2;
+                        a = 404;
                     }
                     else
                     {
@@ -141,7 +141,6 @@ int main()
         case 2:
             while (a == 2)
             {
-                a = 0;
                 printf("\nQueue Before CIR_DEQUEUE Operation:");
                 printf("\nFront=%d", Front);
                 printf("\nRear=%d\n", Rear);
@@ -225,6 +224,8 @@ int main()
                         }
                     }
                 }
+
+                a = 0;
                 while (a == 0)
                 {
                     printf("\n\nYour Want To CIR_DEQUEUE Again ? \n1.Yes \n2.Back\n3.Close\n");
@@ -236,12 +237,12 @@ int main()
                     }
                     else if (a == 2)
                     {
-                        a = 1;
-                        z = 0;
+                        a = 404;
+                        z = 1;
                     }
                     else if (a == 3)
                     {
-                        a = 1;
+                        a = 404;
                     }
                     else
                     {

@@ -2,14 +2,14 @@
 
 int main()
 {
-
     int S[1000], Tos = -1, N, Data;
     printf("Enter Size Of Stack[Max:1000]: ");
     scanf("%d", &N);
+
     int a, i, z = 1;
     while (z == 1)
     {
-        z = 1;
+        z = 0;
         printf("\nSelect Option For Operation In Stack:\n");
         printf("1.PUSH\n2.POP\n3.PEEP\n4.PEEK\n5.Close\n");
         scanf("%d", &a);
@@ -23,7 +23,6 @@ int main()
 
         // PUSH Operation
         case 1:
-            z = 0;
             while (a == 1)
             {
 
@@ -75,7 +74,6 @@ int main()
 
         // POP Operation
         case 2:
-            z = 0;
             while (a == 2)
             {
 
@@ -126,7 +124,6 @@ int main()
 
         // PEEP Operation
         case 3:
-            z = 0;
             while (a == 3)
             {
 
@@ -186,7 +183,6 @@ int main()
 
         // PEEK Operation
         case 4:
-
             // START
             if (Tos <= -1)
             {
