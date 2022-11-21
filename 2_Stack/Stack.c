@@ -16,7 +16,7 @@ int main()
         if (a > 5 || a < 1)
         {
             printf("\nPlease Select Valid Option !\n");
-            z = 0;
+            z = 1;
         }
         switch (a)
         {
@@ -198,7 +198,6 @@ int main()
             break;
 
         default:
-            z = 0;
             break;
         }
     }
