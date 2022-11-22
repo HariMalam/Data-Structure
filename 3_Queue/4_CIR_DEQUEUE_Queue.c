@@ -1,12 +1,12 @@
 #include <stdio.h>
 int main()
 {
-    int Q[100], Front = -1, Rear = -1, N, Data;
+    int Q[100], Front = -1, Rear = -1, N, Data, i;
 
     printf("Enter size of Queue: ");
     scanf("%d", &N);
 
-    printf("Please Enter How Many Elements You Want To Enter: ");
+    printf("Please Enter Number Of Elements You Want To Enter: ");
     scanf("%d", &Rear);
     Rear--;
 
@@ -18,6 +18,32 @@ int main()
             printf("Enter Element: ");
             scanf("%d", &Q[i]);
         }
+
+        printf("\nQueue After CIR_ENQUEUE Operation:");
+        printf("\nFront=%d", Front);
+        printf("\nRear=%d\n", Rear);
+        printf("Queue: ");
+        if (Front == -1)
+        {
+            printf("Empty");
+        }
+
+        for (i = Front; i > -1; i++)
+        {
+
+            printf("%d ", Q[i]);
+
+            if (i == Rear)
+            {
+                break;
+            }
+            else if (i == N - 1)
+            {
+                i = -1;
+            }
+        }
+
+        // Start: CIR_DEQUEUE Main Logic
 
         if (Front == -1)
         {
@@ -36,20 +62,35 @@ int main()
             {
                 Front = 0;
             }
-
             else
             {
                 Front++;
             }
 
-            printf("\nQueue After DEQUEUE Operation:\n");
-            for (int i = Front; i <= Rear; i++)
+            // END: CIR_DEQUEUE Main Logic
+
+            printf("\nQueue After CIR_ENQUEUE Operation:");
+            printf("\nFront=%d", Front);
+            printf("\nRear=%d\n", Rear);
+            printf("Queue: ");
+            if (Front == -1)
             {
-                if (i == N - 1 && Rear != N - 1)
-                {
-                    i = 0;
-                }
+                printf("Empty");
+            }
+
+            for (i = Front; i > -1; i++)
+            {
+
                 printf("%d ", Q[i]);
+
+                if (i == Rear)
+                {
+                    break;
+                }
+                else if (i == N - 1)
+                {
+                    i = -1;
+                }
             }
         }
     }

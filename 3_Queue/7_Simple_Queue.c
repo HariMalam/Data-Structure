@@ -6,8 +6,8 @@ int main()
     int Q[100], Front = -1, Rear = -1, N, Data;
     printf("Enter size of Queue: ");
     scanf("%d", &N);
-    int z = 1;
-    int i, a;
+
+    int a, i, z = 1;
     while (z == 1)
     {
         z = 0;
@@ -17,11 +17,13 @@ int main()
         if (a > 3 || a < 1)
         {
             printf("\nPlease Select Valid Option !\n");
-            z = 0;
+            z = 1;
         }
 
         switch (a)
         {
+
+        // ENQUEUE Operation
         case 1:
             while (a == 1)
             {
@@ -30,25 +32,15 @@ int main()
                 printf("\nFront=%d", Front);
                 printf("\nRear=%d\n", Rear);
                 printf("Queue: ");
-                i = Front;
-                while (i >= -1)
+                for (int i = Front; i <= Rear; i++)
                 {
-                    if (i == -1)
-                    {
+                    if (Rear == -1)
                         printf("Empty");
-                        break;
-                    }
-                    else if (i == Rear)
-                    {
-                        printf("%d ", Q[i]);
-                        break;
-                    }
                     else
-                    {
                         printf("%d ", Q[i]);
-                        i++;
-                    }
                 }
+
+                // Start: Main ENQUEUE Logic
 
                 if (Front == -1)
                 {
@@ -67,28 +59,18 @@ int main()
                     Rear++;
                     Q[Rear] = Data;
 
+                    // End: Main ENQUEUE Logic
+
                     printf("\nQueue After ENQUEUE Operation:");
                     printf("\nFront=%d", Front);
                     printf("\nRear=%d\n", Rear);
                     printf("Queue: ");
-                    i = Front;
-                    while (i >= -1)
+                    for (int i = Front; i <= Rear; i++)
                     {
-                        if (i == -1)
-                        {
+                        if (Rear == -1)
                             printf("Empty");
-                            break;
-                        }
-                        else if (i == Rear)
-                        {
-                            printf("%d ", Q[i]);
-                            break;
-                        }
                         else
-                        {
                             printf("%d ", Q[i]);
-                            i++;
-                        }
                     }
                 }
 
@@ -119,6 +101,7 @@ int main()
             }
             break;
 
+        // DEQUEUE Operation
         case 2:
             while (a == 2)
             {
@@ -126,31 +109,20 @@ int main()
                 printf("\nFront=%d", Front);
                 printf("\nRear=%d\n", Rear);
                 printf("Queue: ");
-                i = Front;
-                while (i >= -1)
+                for (int i = Front; i <= Rear; i++)
                 {
-                    if (i == -1)
-                    {
+                    if (Rear == -1)
                         printf("Empty");
-                        break;
-                    }
-                    else if (i == Rear)
-                    {
-                        printf("%d ", Q[i]);
-                        break;
-                    }
                     else
-                    {
                         printf("%d ", Q[i]);
-                        i++;
-                    }
                 }
+
+                // Start: DEQUEUE Main Logic
 
                 if (Front == -1)
                 {
                     printf("\n\nQueue is Underflow !");
                 }
-
                 else
                 {
                     Data = Q[Front];
@@ -164,28 +136,18 @@ int main()
                         Front++;
                     }
 
+                    // End: DEQUEUE Main Logic
+
                     printf("\nQueue After DEQUEUE Operation:");
                     printf("\nFront=%d", Front);
                     printf("\nRear=%d\n", Rear);
                     printf("Queue: ");
-                    i = Front;
-                    while (i >= -1)
+                    for (int i = Front; i <= Rear; i++)
                     {
-                        if (i == -1)
-                        {
+                        if (Rear == -1)
                             printf("Empty");
-                            break;
-                        }
-                        else if (i == Rear)
-                        {
-                            printf("%d ", Q[i]);
-                            break;
-                        }
                         else
-                        {
                             printf("%d ", Q[i]);
-                            i++;
-                        }
                     }
                 }
 

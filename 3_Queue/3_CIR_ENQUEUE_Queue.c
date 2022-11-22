@@ -6,7 +6,7 @@ int main()
     printf("Enter size of Queue: ");
     scanf("%d", &N);
 
-    printf("Please Enter How Many Elements You Want To Enter: ");
+    printf("Please Enter Number Of Elements You Want To Enter: ");
     scanf("%d", &Rear);
     Rear--;
 
@@ -19,37 +19,33 @@ int main()
             scanf("%d", &Q[i]);
         }
 
-        printf("\nQueue After CIR_ENQUEUE Operation:");
+        printf("\nQueue Before CIR_ENQUEUE Operation:");
         printf("\nFront=%d", Front);
         printf("\nRear=%d\n", Rear);
         printf("Queue: ");
-        i = Front;
-        while (i >= -1)
+        if (Front == -1)
         {
-            if (i == -1)
+            printf("Empty");
+        }
+
+        for (i = Front; i > -1; i++)
+        {
+
+            printf("%d ", Q[i]);
+
+            if (i == Rear)
             {
-                printf("Empty");
-                break;
-            }
-            else if (i == Rear)
-            {
-                printf("%d ", Q[i]);
                 break;
             }
             else if (i == N - 1)
             {
-
-                printf("%d ", Q[i]);
-                i = 0;
-            }
-            else
-            {
-                printf("%d ", Q[i]);
-                i++;
+                i = -1;
             }
         }
 
-        if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) //(Rear+1)%N==Front
+        // Start: CIR_ENQUEUE Main Logic
+
+        if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
         {
             printf("\n\nQueue is Overflow !");
         }
@@ -62,44 +58,42 @@ int main()
             {
                 Front = 0;
             }
+
             if (Rear == N - 1)
             {
                 Rear = 0;
-                Q[Rear] = Data;
             }
             else
             {
                 Rear++;
-                Q[Rear] = Data;
             }
+
+            Q[Rear] = Data;
+
+            // END: CIR_ENQUEUE Main Logic
 
             printf("\nQueue After CIR_ENQUEUE Operation:");
             printf("\nFront=%d", Front);
             printf("\nRear=%d\n", Rear);
             printf("Queue: ");
             i = Front;
-            while (i >= -1)
+            if (Front == -1)
             {
-                if (i == -1)
+                printf("Empty");
+            }
+
+            for (i = Front; i > -1; i++)
+            {
+
+                printf("%d ", Q[i]);
+
+                if (i == Rear)
                 {
-                    printf("Empty");
-                    break;
-                }
-                else if (i == Rear)
-                {
-                    printf("%d ", Q[i]);
                     break;
                 }
                 else if (i == N - 1)
                 {
-
-                    printf("%d ", Q[i]);
-                    i = 0;
-                }
-                else
-                {
-                    printf("%d ", Q[i]);
-                    i++;
+                    i = -1;
                 }
             }
         }

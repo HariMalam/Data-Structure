@@ -7,7 +7,7 @@ int main()
     printf("Enter size of Queue: ");
     scanf("%d", &N);
 
-    printf("Please Enter How Many Elements You Want To Enter: ");
+    printf("Please Enter Number Of Elements You Want To Enter: ");
     scanf("%d", &Rear);
     Rear--;
 
@@ -15,29 +15,29 @@ int main()
     {
         for (int i = 0; i <= Rear; i++)
         {
-
             Front = 0;
             printf("Enter Element: ");
             scanf("%d", &Q[i]);
         }
 
-                printf("\nQueue Before ENQUEUE Operation:");
-                printf("\nFront=%d", Front);
-                printf("\nRear=%d\n", Rear);
-                printf("Queue: ");
+        printf("\nQueue Before ENQUEUE Operation:");
+        printf("\nFront=%d", Front);
+        printf("\nRear=%d\n", Rear);
+        printf("Queue: ");
         for (int i = Front; i <= Rear; i++)
         {
-            if (Rear != -1)
-                printf("%d ", Q[i]);
-            else
+            if (Rear == -1)
                 printf("Empty");
+            else
+                printf("%d ", Q[i]);
         }
+
+        // Start: DEQUEUE Main Logic
 
         if (Front == -1)
         {
             printf("\nQueue is Underflow !");
         }
-
         else
         {
             Data = Q[Front];
@@ -50,16 +50,19 @@ int main()
             {
                 Front++;
             }
-                printf("\n\nQueue After ENQUEUE Operation:");
-                printf("\nFront=%d", Front);
-                printf("\nRear=%d\n", Rear);
-                printf("Queue: ");
+
+            // End: DEQUEUE Main Logic
+
+            printf("\n\nQueue After ENQUEUE Operation:");
+            printf("\nFront=%d", Front);
+            printf("\nRear=%d\n", Rear);
+            printf("Queue: ");
             for (int i = Front; i <= Rear; i++)
             {
-                if (Rear != -1)
-                    printf("%d ", Q[i]);
-                else
+                if (Rear == -1)
                     printf("Empty");
+                else
+                    printf("%d ", Q[i]);
             }
         }
     }

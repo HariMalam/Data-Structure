@@ -6,14 +6,14 @@ int main()
     printf("Enter size of Queue: ");
     scanf("%d", &N);
 
-    printf("Please Enter How Many Elements You Want To Enter: ");
+    printf("Please Enter Number Of Elements You Want To Enter: ");
     scanf("%d", &Rear);
     Rear--;
+
     if (Rear < N)
     {
         for (int i = 0; i <= Rear; i++)
         {
-
             Front = 0;
             printf("Enter Element: ");
             scanf("%d", &Q[i]);
@@ -30,6 +30,9 @@ int main()
             else
                 printf("%d ", Q[i]);
         }
+
+        // Start: Main ENQUEUE Logic
+
         if (Rear >= N - 1)
         {
             printf("\nQueue is Overflow !");
@@ -42,6 +45,8 @@ int main()
             Q[Rear] = Data;
             if (Front = -1)
                 Front = 0;
+
+            // End: Main ENQUEUE Logic
 
             printf("\nQueue After ENQUEUE Operation:");
             printf("\nFront=%d", Front);
@@ -58,5 +63,6 @@ int main()
     }
     else
         printf("Please Enter Valid Size Of Queue !");
+
     return 0;
 }

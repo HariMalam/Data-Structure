@@ -17,11 +17,13 @@ int main()
         if (a > 3 || a < 1)
         {
             printf("\nPlease Select Valid Option !\n");
-            z = 0;
+            z = 1;
         }
 
         switch (a)
         {
+
+        // CIR_ENQUEUE Operation
         case 1:
             while (a == 1)
             {
@@ -30,32 +32,29 @@ int main()
                 printf("\nRear=%d\n", Rear);
                 printf("Queue: ");
                 i = Front;
-                while (i >= -1)
+                if (Front == -1)
                 {
-                    if (i == -1)
+                    printf("Empty");
+                }
+
+                for (i = Front; i > -1; i++)
+                {
+
+                    printf("%d ", Q[i]);
+
+                    if (i == Rear)
                     {
-                        printf("Empty");
-                        break;
-                    }
-                    else if (i == Rear)
-                    {
-                        printf("%d ", Q[i]);
                         break;
                     }
                     else if (i == N - 1)
                     {
-
-                        printf("%d ", Q[i]);
-                        i = 0;
-                    }
-                    else
-                    {
-                        printf("%d ", Q[i]);
-                        i++;
+                        i = -1;
                     }
                 }
 
-                if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) //(Rear+1)%N==Front
+                // Start: CIR_ENQUEUE Main Logic
+
+                if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
                 {
                     printf("\n\nQueue is Overflow !");
                 }
@@ -68,44 +67,41 @@ int main()
                     {
                         Front = 0;
                     }
+
                     if (Rear == N - 1)
                     {
                         Rear = 0;
-                        Q[Rear] = Data;
                     }
                     else
                     {
                         Rear++;
-                        Q[Rear] = Data;
                     }
+
+                    Q[Rear] = Data;
+
+                    // END: CIR_ENQUEUE Main Logic
 
                     printf("\nQueue After CIR_ENQUEUE Operation:");
                     printf("\nFront=%d", Front);
                     printf("\nRear=%d\n", Rear);
                     printf("Queue: ");
-                    i = Front;
-                    while (i >= -1)
+                    if (Front == -1)
                     {
-                        if (i == -1)
+                        printf("Empty");
+                    }
+
+                    for (i = Front; i > -1; i++)
+                    {
+
+                        printf("%d ", Q[i]);
+
+                        if (i == Rear)
                         {
-                            printf("Empty");
-                            break;
-                        }
-                        else if (i == Rear)
-                        {
-                            printf("%d ", Q[i]);
                             break;
                         }
                         else if (i == N - 1)
                         {
-
-                            printf("%d ", Q[i]);
-                            i = 0;
-                        }
-                        else
-                        {
-                            printf("%d ", Q[i]);
-                            i++;
+                            i = -1;
                         }
                     }
                 }
@@ -138,6 +134,7 @@ int main()
 
             break;
 
+        // CIR_DEQUEUE Operation
         case 2:
             while (a == 2)
             {
@@ -145,31 +142,27 @@ int main()
                 printf("\nFront=%d", Front);
                 printf("\nRear=%d\n", Rear);
                 printf("Queue: ");
-                i = Front;
-                while (i >= -1)
+                if (Front == -1)
                 {
-                    if (i == -1)
+                    printf("Empty");
+                }
+
+                for (i = Front; i > -1; i++)
+                {
+
+                    printf("%d ", Q[i]);
+
+                    if (i == Rear)
                     {
-                        printf("Empty");
-                        break;
-                    }
-                    else if (i == Rear)
-                    {
-                        printf("%d ", Q[i]);
                         break;
                     }
                     else if (i == N - 1)
                     {
-
-                        printf("%d ", Q[i]);
-                        i = 0;
-                    }
-                    else
-                    {
-                        printf("%d ", Q[i]);
-                        i++;
+                        i = -1;
                     }
                 }
+
+                // Start: CIR_DEQUEUE Main Logic
 
                 if (Front == -1)
                 {
@@ -188,39 +181,34 @@ int main()
                     {
                         Front = 0;
                     }
-
                     else
                     {
                         Front++;
                     }
 
-                    printf("\n\nQueue After CIR_DEQUEUE Operation:");
+                    // END: CIR_DEQUEUE Main Logic
+
+                    printf("\nQueue Before CIR_DEQUEUE Operation:");
                     printf("\nFront=%d", Front);
                     printf("\nRear=%d\n", Rear);
                     printf("Queue: ");
-                    i = Front;
-                    while (i >= -1)
+                    if (Front == -1)
                     {
-                        if (i == -1)
+                        printf("Empty");
+                    }
+
+                    for (i = Front; i > -1; i++)
+                    {
+
+                        printf("%d ", Q[i]);
+
+                        if (i == Rear)
                         {
-                            printf("Empty");
-                            break;
-                        }
-                        else if (i == Rear)
-                        {
-                            printf("%d ", Q[i]);
                             break;
                         }
                         else if (i == N - 1)
                         {
-
-                            printf("%d ", Q[i]);
-                            i = 0;
-                        }
-                        else
-                        {
-                            printf("%d ", Q[i]);
-                            i++;
+                            i = -1;
                         }
                     }
                 }
