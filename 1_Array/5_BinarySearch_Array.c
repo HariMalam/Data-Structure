@@ -2,7 +2,7 @@
 int main()
 {
     int A[100], N, Item;
-    int i, p = 0;
+    int i;
     printf("Enter How Many Element You Want in Array[Max:100]: ");
     scanf("%d", &N);
 
@@ -10,6 +10,25 @@ int main()
     {
         printf("Enter Elemnt At POS[%d]: ", i);
         scanf("%d", &A[i]);
+    }
+
+    for (int j = 0; j < N; j++)
+    {
+        for (i = j; i < N; i++)
+        {
+            if (A[i] <= A[j])
+            {
+                int temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+        }
+    }
+
+    printf("Array Elements After Sorting Array: \n");
+    for (i = 0; i < N; i++)
+    {
+        printf("%d ", A[i]);
     }
 
     printf("\nEnter Item You Want To Search: ");
@@ -33,14 +52,13 @@ int main()
 
         else if (A[mid] == Item)
         {
-            p = 1;
+            i = -1;
             break;
         }
     }
-
-    if (p == 1)
+    if (i == -1)
     {
-        printf("Match Found At POS[%d]", mid);
+        printf("Match Found At POS[%d] (In Sorted Array)", mid);
     }
     else
     {

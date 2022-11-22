@@ -2,25 +2,24 @@
 int main()
 {
     int n;
-    int a = 0;
-    printf("Hey, Welcome in My Program");
-    while (a == 0)
+    int z = 1;
+    while (z == 1)
     {
         int i = 0;
         while (i == 0)
         {
             printf("\n\nPlease Select Option For Operations in Array: \n");
-            printf("1.Traversal\n2.Insersion\n3.Deletion\n4.Linear Search\n5.Binary Search\n6.Close\n");
+            printf("1.Traversal\n2.Insersion\n3.Deletion\n4.Linear Search\n5.Binary Search\n6.Sort_Array\n7.Close\n");
             scanf("%d", &n);
 
             i = 1;
-            if (n < 1 || n > 6)
+            if (n < 1 || n > 7)
             {
                 printf("Please Select Valid Option !");
                 i = 0;
             }
         }
-        int A[100], N, LB, UB, POS, Item, p, beg, end, mid;
+        int A[100], N, LB, UB, POS, Item, p;
         switch (n)
         {
         case 1:
@@ -104,7 +103,6 @@ int main()
 
             break;
         case 4:
-
             printf("Enter How Many Element You Want in Array[Max:100]: ");
             scanf("%d", &N);
 
@@ -139,7 +137,6 @@ int main()
 
             break;
         case 5:
-            p = 0;
             printf("Enter How Many Element You Want in Array[Max:100]: ");
             scanf("%d", &N);
 
@@ -149,12 +146,31 @@ int main()
                 scanf("%d", &A[i]);
             }
 
+            for (int j = 0; j < N; j++)
+            {
+                for (i = j; i < N; i++)
+                {
+                    if (A[i] > A[i + 1])
+                    {
+                        int temp = A[i];
+                        A[i] = A[i + 1];
+                        A[i + 1] = temp;
+                    }
+                }
+            }
+
+            printf("Array Elements After Shorting Array: \n");
+            for (i = 0; i < N; i++)
+            {
+                printf("%d ", A[i]);
+            }
+
             printf("\nEnter Item You Want To Search: ");
             scanf("%d", &Item);
 
-            beg = 0;
-            end = N - 1;
-            mid = 0;
+            int beg = 0;
+            int end = N - 1;
+            int mid = 0;
             while (beg <= end)
             {
                 mid = (beg + end) / 2;
@@ -177,7 +193,7 @@ int main()
 
             if (p == 1)
             {
-                printf("Match Found At POS[%d]", mid);
+                printf("Match Found At POS[%d] (In Sorted Array)", mid);
             }
             else
             {
@@ -185,9 +201,44 @@ int main()
             }
 
             break;
+        case 6:
+            printf("Enter How Many Element You Want in Array[Max:100]: ");
+            scanf("%d", &N);
+
+            for (i = 0; i < N; i++)
+            {
+                printf("Enter Elemnt At POS[%d]: ", i);
+                scanf("%d", &A[i]);
+                UB++;
+            }
+
+            printf("\nArray Elements Before Shorting Array: \n");
+            for (i = 0; i < N; i++)
+            {
+                printf("%d ", A[i]);
+            }
+
+            for (int j = 0; j < N; j++)
+            {
+                for (i = j; i < N; i++)
+                {
+                    if (A[i] < A[j])
+                    {
+                        int temp = A[i];
+                        A[i] = A[j];
+                        A[j] = temp;
+                    }
+                }
+            }
+            printf("\nArray Elements After Shorting Array: \n");
+            for (i = 0; i < N; i++)
+            {
+                printf("%d ", A[i]);
+            }
+            break;
 
         default:
-            a = 1;
+            z = 0;
             break;
         }
     }

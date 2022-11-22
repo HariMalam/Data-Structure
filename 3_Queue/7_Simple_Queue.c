@@ -12,9 +12,9 @@ int main()
     {
         z = 0;
         printf("\nSelect Option For Operation In Simple Queue:\n");
-        printf("1.ENQUEUE\n2.DEQUEUE\n3.Close\n");
+        printf("1.ENQUEUE\n2.DEQUEUE\n3.Search_Queue\n4.Close\n");
         scanf("%d", &a);
-        if (a > 3 || a < 1)
+        if (a > 4 || a < 1)
         {
             printf("\nPlease Select Valid Option !\n");
             z = 1;
@@ -154,7 +154,7 @@ int main()
                 a = 0;
                 while (a == 0)
                 {
-                    printf("\n\nYour Want To CIR_DEQUEUE Again ? \n1.Yes \n2.Back\n3.Close\n");
+                    printf("\n\nYour Want To DEQUEUE Again ? \n1.Yes \n2.Back\n3.Close\n");
                     scanf("%d", &a);
                     if (a == 1)
                     {
@@ -179,10 +179,86 @@ int main()
 
             break;
 
-        default:
-            break;
-        }
-    }
+        // Search_Queue Operation
+        case 3:
+            while (a == 3)
+            {
+                printf("\nFront=%d", Front);
+                printf("\nRear=%d\n", Rear);
+                printf("Queue: ");
+                for (int i = Front; i <= Rear; i++)
+                {
+                    if (Rear == -1)
+                        printf("Empty");
+                    else
+                        printf("%d ", Q[i]);
+                }
+                
+                // Start: Search_Queue Main Logic
 
-    return 0;
+                printf("\nEnter Element You Want To Find: ");
+                scanf("%d", &Data);
+
+                if (Front == -1)
+                {
+                    printf("Queue is Empty !");
+                }
+                else
+                {
+                    for (i = Front; i <= Rear; i++)
+                    {
+
+                        if (Q[i] == Data)
+                        {
+                            a = 1;
+                            break;
+                        }
+                    }
+                    if (a == 1)
+                    {
+                        printf("Element Found in Queue At Rear Pointer: %d", i);
+                    }
+                    else
+                    {
+                        printf("Element Not Found in Queue !");
+                    }
+                }
+                
+
+            // End: Search_Queue Main Logic
+
+            a = 0;
+            while (a == 0)
+            {
+                printf("\n\nYour Want To Search Again ? \n1.Yes \n2.Back\n3.Close\n");
+                scanf("%d", &a);
+                if (a == 1)
+                {
+                    a = 3;
+                }
+                else if (a == 2)
+                {
+                    a = 404;
+                    z = 1;
+                }
+                else if (a == 3)
+                {
+                    a = 404;
+                }
+                else
+                {
+                    printf("\nPlease Select Valid Option !");
+                    a = 0;
+                }
+            }
+        }
+
+        break;
+
+    default:
+        break;
+    }
+}
+
+return 0;
 }
