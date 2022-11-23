@@ -3,21 +3,21 @@ int main()
 {
     int A[100], N, Item, POS;
     int i;
-    printf("Enter How Many Element You Want in Array[Max:100]: ");
-    scanf("%d", &N);
+    // printf("Enter How Many Element You Want in Array[Max:100]: ");
+    // scanf("%d", &N);
 
-    for (i = 0; i < N; i++)
-    {
-        printf("Enter Elemnt At POS[%d]: ", i);
-        scanf("%d", &A[i]);
-    }
+    // for (i = 0; i < N; i++)
+    // {
+    //     printf("Enter Elemnt At POS[%d]: ", i);
+    //     scanf("%d", &A[i]);
+    // }
 
     printf("\nEnter Item You Want To Insert: ");
     scanf("%d", &Item);
     printf("\nEnter Position Where You Want ot Insert: ");
     scanf("%d", &POS);
 
-    for (i = N - 1; i >= POS; i--)
+    for (i = 0; i >= POS; i--)
     {
         A[i + 1] = A[i];
     }
