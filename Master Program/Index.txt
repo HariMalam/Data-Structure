@@ -1,0 +1,64 @@
+// <--------------------------------------------------------------------| Start: Index |------------------------------------------------------------------> //
+
+(1) Main Function
+
+(2) Array Funtion
+(3) Stack Funtion
+(4) Queue Funtion
+(4) Link List Funtion
+
+(5) Array Functions:
+                        (1) Traversal
+                        (2) Insersion
+                        (3) Insersion
+                        (4) Deletion
+                        (5) Linear Search
+                        (6) Binary Search
+                        (7) Sort Array    
+
+(6) Stack Functions:
+                        (1) Push
+                        (2) Pop
+                        (3) Peep
+                        (4) Peek
+ 
+(7) Queue Functions:
+                        (1) Simple Queue:
+                                                    (1) Enqueue
+                                                    (2) Dequeue
+
+                        (2) Circular Queue:
+                                                    (2) Circular Enqueue
+                                                    (2) Circular Dequeue
+
+                        (2) Double Ended Queue:
+                                                    (2) Insert Front
+                                                    (2) Delet Rear
+
+(8) Link List Funtions:
+
+(9) Print Functions:
+                        (1) Print Array Elements
+                        (2) Print Stack Elements
+                        (3) Print Queue Elements
+
+(10) Recall Functions:
+                        (1) Traversal
+                        (2) Insersion
+                        (3) Insersion
+                        (4) Deletion
+                        (5) Linear Search
+                        (6) Binary Search
+                        (7) Sort Array
+                        (8) Push
+                        (9) Pop
+                        (10) Peep
+                        (11) Peek
+                        (12) Enqueue
+                        (13) Dequeue
+                        (14) Circular Enqueue
+                        (15) Circular Dequeue
+                        (16) Insert Front
+                        (17) Delet Rear
+
+// <---------------------------------------------------------------------| End: Index |-------------------------------------------------------------------> //
