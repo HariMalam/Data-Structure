@@ -642,9 +642,6 @@ void Recall_Enqueue();
 void Enqueue()
 {
     // ====================================== Start ====================================== //
-    printf("\nBefore Enqueue Operation:");
-    Print_Queue();
-
     if (Rear >= N - 1)
     {
         printf("\nYou Can't Enqueue Element Because Queue is Overflow !");
@@ -677,9 +674,6 @@ void Recall_Dequeue();
 void Dequeue()
 {
     // ====================================== Start ====================================== //
-    printf("\nBefore Dequeue Operation:");
-    Print_Queue();
-
     if (Front == -1)
     {
         printf("\nYou Can't Dequeue Element Because Queue is Underflow !");
@@ -700,7 +694,7 @@ void Dequeue()
             Front++;
         }
 
-        printf("\nAfter Dequeue Operation:");
+        printf("\n\nAfter Dequeue Operation:");
         Print_Queue();
     }
     // ======================================= End ======================================= //
@@ -752,8 +746,6 @@ void Recall_CIR_Enqueue();
 void CIR_Enqueue()
 {
     // ====================================== Start ====================================== //
-    printf("\nBefore Circular Enqueue Operation:");
-    Print_Queue();
 
     if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
     {
@@ -761,6 +753,8 @@ void CIR_Enqueue()
     }
     else
     {
+        printf("\nBefore Circular Enqueue Operation:");
+        Print_Queue();
         printf("\n\nEnter Element You Want To Enqueue: ");
         scanf("%d", &Data);
 
@@ -792,8 +786,6 @@ void Recall_CIR_Dequeue();
 void CIR_Dequeue()
 {
     // ====================================== Start ====================================== //
-    printf("\nBefore Circular Dequeue Operation:");
-    Print_Queue();
 
     if (Front == -1)
     {
@@ -801,6 +793,8 @@ void CIR_Dequeue()
     }
     else
     {
+        printf("\nBefore Circular Dequeue Operation:");
+        Print_Queue();
         Data = Q[Front];
 
         if (Front == Rear)
@@ -869,8 +863,8 @@ void Print_Stack()
 // Print Queue Elements
 void Print_Queue()
 {
-    printf("\nFront=%d", Front);
-    printf("\nRear=%d\n", Rear);
+    printf("\nFront = %d", Front);
+    printf("\nRear = %d\n", Rear);
     printf("Queue: ");
     i = Front;
     for (i = Front; i >= -1; i++)
