@@ -719,7 +719,8 @@ void Search_Queue()
     }
     else
     {
-        printf("\n\nEnter Element You Want To Find: ");
+        Print_Queue();
+        printf("\n\nEnter Element You Want To Find From Above Queue: ");
         scanf("%d", &Data);
 
         for (i = Front; i <= Rear; i++)
