@@ -4,9 +4,9 @@ void Stack();
 void Queue();
 void Link_List();
 
-int A[1000], Data, POS, LB = 0, UB = 0;
-int S[1000], Tos = -1, N;
-int Q[1000], Front = -1, Rear = -1;
+int A[1000], Data, POS, LB, UB;
+int S[1000], Tos, N;
+int Q[1000], Front, Rear;
 int i;
 int a;
 
@@ -23,6 +23,8 @@ int main()
     {
     // Array Operations
     case 1:
+        LB = 0;
+        UB = 0;
         printf("\nEnter Size Of Array: ");
         scanf("%d", &N);
         Array();
@@ -30,6 +32,7 @@ int main()
 
     // Stack Operations
     case 2:
+        Tos = -1;
         printf("\nEnter Size Of Stack: ");
         scanf("%d", &N);
         Stack();
@@ -37,6 +40,8 @@ int main()
 
     // QUEUE Operations
     case 3:
+        Front = -1;
+        Rear = -1;
         printf("\nEnter Size Of Queue: ");
         scanf("%d", &N);
         Queue();
@@ -190,6 +195,8 @@ void Stack()
 void Simple_Queue();
 void Circular_Queue();
 void Doubly_Ended_Queue();
+void Print_Queue();
+
 void Queue()
 {
     printf("\nSelect Option For Operation In Queue:\n");
@@ -200,15 +207,11 @@ void Queue()
     {
     // Simple Queue Operations
     case 1:
-        Front = -1;
-        Rear = -1;
         Simple_Queue();
         break;
 
-    // Circular Queue Operations
+        // Circular Queue Operations
     case 2:
-        Front = -1;
-        Rear = -1;
         Circular_Queue();
         break;
 
@@ -236,7 +239,6 @@ void Queue()
 void Enqueue();
 void Dequeue();
 void Search_Queue();
-void Print_Simple_Queue();
 
 void Simple_Queue()
 {
@@ -283,7 +285,6 @@ void Simple_Queue()
 
 void CIR_Enqueue();
 void CIR_Dequeue();
-void Print_CIR_Queue();
 
 void Circular_Queue()
 {
@@ -531,11 +532,13 @@ void Recall_Push();
 void Push()
 {
     // ====================================== Start ====================================== //
+    printf("\nStack Before PUSH Operation:\n");
+    Print_Stack();
+
     if (Tos >= N - 1)
     {
         printf("\nYou Can't Push Element Because Stack Overflow !");
     }
-
     else
     {
         printf("\nEnter New Element: ");
@@ -557,6 +560,9 @@ void Recall_Pop();
 void Pop()
 {
     // ====================================== Start ====================================== //
+    printf("\nStack Before POP Operation: \n");
+    Print_Stack();
+
     if (Tos <= -1)
     {
         printf("\nYou Can't Pop Element Because Stack is Underflow");
@@ -583,7 +589,9 @@ void Peep()
     }
     else
     {
-        printf("\nEnter Element You Want To Find: ");
+        printf("\nStack:\n");
+        Print_Stack();
+        printf("\nEnter Element You Want To Find Form Above Stack: ");
         scanf("%d", &Data);
         for (int i = 0; i <= Tos; i++)
         {
@@ -603,7 +611,6 @@ void Peep()
             printf("\nElement %d Doesn't Match in stack !", Data);
         }
     }
-
     // ======================================= End ======================================= //
     Recall_Peep();
 }
@@ -635,6 +642,8 @@ void Recall_Enqueue();
 void Enqueue()
 {
     // ====================================== Start ====================================== //
+    printf("\nBefore Enqueue Operation:");
+    Print_Queue();
 
     if (Rear >= N - 1)
     {
@@ -643,7 +652,7 @@ void Enqueue()
     else
     {
         printf("\nBefore Enqueue Operation:");
-        Print_Simple_Queue();
+        Print_Queue();
 
         if (Front == -1)
         {
@@ -657,7 +666,7 @@ void Enqueue()
         Q[Rear] = Data;
 
         printf("\nAfter Enqueue Operation:");
-        Print_Simple_Queue();
+        Print_Queue();
     }
     // ======================================= End ======================================= //
     Recall_Enqueue();
@@ -668,6 +677,9 @@ void Recall_Dequeue();
 void Dequeue()
 {
     // ====================================== Start ====================================== //
+    printf("\nBefore Dequeue Operation:");
+    Print_Queue();
+
     if (Front == -1)
     {
         printf("\nYou Can't Dequeue Element Because Queue is Underflow !");
@@ -675,7 +687,7 @@ void Dequeue()
     else
     {
         printf("\nBefore Dequeue Operation:");
-        Print_Simple_Queue();
+        Print_Queue();
 
         Data = Q[Front];
         if (Front == Rear)
@@ -688,8 +700,8 @@ void Dequeue()
             Front++;
         }
 
-        printf("\n\nAfter Dequeue Operation:");
-        Print_Simple_Queue();
+        printf("\nAfter Dequeue Operation:");
+        Print_Queue();
     }
     // ======================================= End ======================================= //
     Recall_Dequeue();
@@ -699,7 +711,7 @@ void Dequeue()
 void Recall_Search_Queue();
 void Search_Queue()
 {
-    Print_Simple_Queue();
+    Print_Queue();
     // ====================================== Start ====================================== //
     if (Front == -1)
     {
@@ -740,7 +752,8 @@ void CIR_Enqueue()
 {
     // ====================================== Start ====================================== //
     printf("\nBefore Circular Enqueue Operation:");
-    Print_CIR_Queue();
+    Print_Queue();
+
     if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
     {
         printf("\n\nYou Can't Enqueue Because Queue is Overflow !");
@@ -767,7 +780,7 @@ void CIR_Enqueue()
         Q[Rear] = Data;
 
         printf("\nAfter Circular Enqueue Operation:");
-        Print_CIR_Queue();
+        Print_Queue();
     }
     // ======================================= End ======================================= //
     Recall_CIR_Enqueue();
@@ -779,7 +792,7 @@ void CIR_Dequeue()
 {
     // ====================================== Start ====================================== //
     printf("\nBefore Circular Dequeue Operation:");
-    Print_CIR_Queue();
+    Print_Queue();
 
     if (Front == -1)
     {
@@ -804,7 +817,7 @@ void CIR_Dequeue()
         }
 
         printf("\nBefore Circular Dequeue Operation:");
-        Print_CIR_Queue();
+        Print_Queue();
     }
     // ======================================= End ======================================= //
     Recall_CIR_Dequeue();
@@ -823,7 +836,7 @@ void Recall_DQ_Delet_Rear();
 void DQ_Delet_Rear()
 {
     // ====================================== Start ====================================== //
-    
+
     // ======================================= End ======================================= //
     Recall_DQ_Delet_Rear();
 }
@@ -852,23 +865,8 @@ void Print_Stack()
     }
 }
 
-// Print Simple Queue Elements
-void Print_Simple_Queue()
-{
-    printf("\nFront = %d", Front);
-    printf("\nRear = %d\n", Rear);
-    printf("Queue: ");
-    for (int i = Front; i <= Rear; i++)
-    {
-        if (Rear == -1)
-            printf("Empty");
-        else
-            printf("%d ", Q[i]);
-    }
-}
-
-// Print Circular Queue Elements
-void Print_CIR_Queue()
+// Print Queue Elements
+void Print_Queue()
 {
     printf("\nFront=%d", Front);
     printf("\nRear=%d\n", Rear);
