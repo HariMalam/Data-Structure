@@ -10,7 +10,9 @@ int Q[1000], Front = -1, Rear = -1;
 int i;
 int a;
 
-// ------------------------------------------------------------- Start: Main ------------------------------------------------------------- //
+// ******************************************************************************************************************************************************** //
+
+// <--------------------------------------------------------------------| Start: Main |-------------------------------------------------------------------> //
 int main()
 {
     printf("\nSelect Option For Operation:\n");
@@ -57,9 +59,11 @@ int main()
     return 0;
 }
 
-// ------------------------------------------------------------- End: Main ------------------------------------------------------------- //
+// <--------------------------------------------------------------------| End: Main |------------------------------------------------------------------> //
 
-// ----------------------------------------------------------- Start: Array ------------------------------------------------------------ //
+// ***************************************************************************************************************************************************** //
+
+// <------------------------------------------------------------------| Start: Array |-----------------------------------------------------------------> //
 
 // (1) Array Funcitons
 
@@ -123,9 +127,9 @@ void Array()
     }
 }
 
-// ------------------------------------------------------------ End: Array ------------------------------------------------------------- //
+// <-------------------------------------------------------------------| End: Array |-------------------------------------------------------------------> //
 
-// ----------------------------------------------------------- Start: Stack ------------------------------------------------------------ //
+// <------------------------------------------------------------------| Start: Stack |------------------------------------------------------------------> //
 
 // (2) Stack Funcitons
 
@@ -177,10 +181,9 @@ void Stack()
     }
 }
 
-// ------------------------------------------------------------ End: Stack ------------------------------------------------------------- //
+// <-------------------------------------------------------------------| End: Stack |-------------------------------------------------------------------> //
 
-// ----------------------------------------------------------- Start: Queue ------------------------------------------------------------ //
-
+// <------------------------------------------------------------------| Start: Queue |------------------------------------------------------------------> //
 
 // (3) Queue Funtions
 
@@ -197,18 +200,33 @@ void Queue()
     {
     // Simple Queue Operations
     case 1:
+        Front = -1;
+        Rear = -1;
         Simple_Queue();
         break;
 
     // Circular Queue Operations
     case 2:
+        Front = -1;
+        Rear = -1;
         Circular_Queue();
         break;
 
     // Doubly Ended Queue Operations
     case 3:
         Doubly_Ended_Queue();
+        break;
+
+    case 4:
+        main();
+        break;
+
+    case 0:
+        break;
+
     default:
+        printf("\nPlease Select Valid Option !");
+        Queue();
         break;
     }
 }
@@ -222,8 +240,6 @@ void Print_Simple_Queue();
 
 void Simple_Queue()
 {
-    Front = -1;
-    Rear = -1;
     printf("\nSelect Option For Operation In Simple Queue:\n");
     printf("1.ENQUEUE\n2.DEQUEUE\n3.Search Element in Queue\n4.Back\n5.Main\n0.Close\n");
     scanf("%d", &a);
@@ -245,7 +261,20 @@ void Simple_Queue()
         Search_Queue();
         break;
 
+    case 4:
+        Queue();
+        break;
+
+    case 5:
+        main();
+        break;
+
+    case 0:
+        break;
+
     default:
+        printf("\nPlease Select Valid Option !");
+        Simple_Queue();
         break;
     }
 }
@@ -259,7 +288,7 @@ void Print_CIR_Queue();
 void Circular_Queue()
 {
     printf("\nSelect Option For Operation In Circular Queue:\n");
-    printf("1.Circular ENQUEUE\n2.Circular DEQUEUE\n3.Back\n4.Main\n0.Close");
+    printf("1.Circular Enqueue\n2.Circular Dequeue\n3.Back\n4.Main\n0.Close\n");
     scanf("%d", &a);
 
     switch (a)
@@ -274,7 +303,20 @@ void Circular_Queue()
         CIR_Dequeue();
         break;
 
+    case 3:
+        Queue();
+        break;
+
+    case 4:
+        main();
+        break;
+
+    case 0:
+        break;
+
     default:
+        printf("\nPlease Select Valid Option !");
+        Circular_Queue();
         break;
     }
 }
@@ -301,14 +343,27 @@ void Doubly_Ended_Queue()
         DQ_Delet_Rear();
         break;
 
+    case 3:
+        Queue();
+        break;
+
+    case 4:
+        main();
+        break;
+
+    case 0:
+        break;
+
     default:
+        printf("\nPlease Select Valid Option !");
+        Circular_Queue();
         break;
     }
 }
 
-// ------------------------------------------------------------ End: Queue ------------------------------------------------------------- //
+// <-------------------------------------------------------------------| End: Queue |-------------------------------------------------------------------> //
 
-// --------------------------------------------------------- Start: Link List ---------------------------------------------------------- //
+// <----------------------------------------------------------------| Start: Link List |----------------------------------------------------------------> //
 
 // (4) Link List Functions
 
@@ -316,9 +371,11 @@ void Link_List()
 {
 }
 
-// ---------------------------------------------------------- Endt: Link List ---------------------------------------------------------- //
+// <-----------------------------------------------------------------| Endt: Link List |----------------------------------------------------------------> //
 
-// ------------------------------------------------------------- Start: Array Functions ------------------------------------------------------------- //
+// ****************************************************************************************************************************************************** //
+
+// <-------------------------------------------------------------| Start: Array Functions |-------------------------------------------------------------> //
 
 // Traversal Funciton
 void Recall_Traversal();
@@ -465,9 +522,9 @@ void Sort_Array()
     Recall_Sort_Array();
 }
 
-// -------------------------------------------------------------- End: Array Functions -------------------------------------------------------------- //
+// <--------------------------------------------------------------| End: Array Functions |--------------------------------------------------------------> //
 
-// ------------------------------------------------------------- Start: Stack Functions ------------------------------------------------------------- //
+// <-------------------------------------------------------------| Start: Stack Functions |-------------------------------------------------------------> //
 
 // Push Function
 void Recall_Push();
@@ -568,20 +625,16 @@ void Peek()
     Recall_Peek();
 }
 
-// -------------------------------------------------------------- End: Stack Functions -------------------------------------------------------------- //
+// <--------------------------------------------------------------| End: Stack Functions |--------------------------------------------------------------> //
 
-// ------------------------------------------------------------- Start: Queue Functions ------------------------------------------------------------- //
-// ---------------------------------------------------------- Start: Simple Queue Functions --------------------------------------------------------- //
+// <-------------------------------------------------------------| Start: Queue Functions |-------------------------------------------------------------> //
+// <----------------------------------------------------------| Start: Simple Queue Functions |---------------------------------------------------------> //
 
 // Enqueue Function
 void Recall_Enqueue();
 void Enqueue()
 {
     // ====================================== Start ====================================== //
-    if (Front == -1)
-    {
-        Front = 0;
-    }
 
     if (Rear >= N - 1)
     {
@@ -589,8 +642,13 @@ void Enqueue()
     }
     else
     {
-        printf("\nQueue Before Enqueue Operation:");
+        printf("\nBefore Enqueue Operation:");
         Print_Simple_Queue();
+
+        if (Front == -1)
+        {
+            Front = 0;
+        }
 
         printf("\n\nEnter Element You Want To ENQUEUE: ");
         scanf("%d", &Data);
@@ -598,7 +656,7 @@ void Enqueue()
         Rear++;
         Q[Rear] = Data;
 
-        printf("\nQueue After Enqueue Operation:");
+        printf("\nAfter Enqueue Operation:");
         Print_Simple_Queue();
     }
     // ======================================= End ======================================= //
@@ -616,7 +674,7 @@ void Dequeue()
     }
     else
     {
-        printf("\nQueue Before Dequeue Operation:");
+        printf("\nBefore Dequeue Operation:");
         Print_Simple_Queue();
 
         Data = Q[Front];
@@ -630,7 +688,7 @@ void Dequeue()
             Front++;
         }
 
-        printf("\nQueue After Dequeue Operation:");
+        printf("\n\nAfter Dequeue Operation:");
         Print_Simple_Queue();
     }
     // ======================================= End ======================================= //
@@ -645,11 +703,11 @@ void Search_Queue()
     // ====================================== Start ====================================== //
     if (Front == -1)
     {
-        printf("\nYou Can't Search Element Because Queue is Underflow !");
+        printf("\n\nYou Can't Search Element Because Queue is Underflow !");
     }
     else
     {
-        printf("Enter Element You Want To Find: ");
+        printf("\n\nEnter Element You Want To Find: ");
         scanf("%d", &Data);
 
         for (i = Front; i <= Rear; i++)
@@ -671,16 +729,46 @@ void Search_Queue()
         }
     }
     // ======================================= End ======================================= //
-    Recall_Dequeue();
+    Recall_Search_Queue();
 }
-// ---------------------------------------------------------- End: Simple Queue Functions ---------------------------------------------------------- //
-// -------------------------------------------------------- Start: Circular Queue Functions -------------------------------------------------------- //
+// <----------------------------------------------------------| End: Simple Queue Functions |----------------------------------------------------------> //
+// <--------------------------------------------------------| Start: Circular Queue Functions |--------------------------------------------------------> //
 
 // Circular Enqueue Funtion
 void Recall_CIR_Enqueue();
 void CIR_Enqueue()
 {
     // ====================================== Start ====================================== //
+    printf("\nBefore Circular Enqueue Operation:");
+    Print_CIR_Queue();
+    if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
+    {
+        printf("\n\nYou Can't Enqueue Because Queue is Overflow !");
+    }
+    else
+    {
+        printf("\n\nEnter Element You Want To Enqueue: ");
+        scanf("%d", &Data);
+
+        if (Front == -1)
+        {
+            Front = 0;
+        }
+
+        if (Rear == N - 1)
+        {
+            Rear = 0;
+        }
+        else
+        {
+            Rear++;
+        }
+
+        Q[Rear] = Data;
+
+        printf("\nAfter Circular Enqueue Operation:");
+        Print_CIR_Queue();
+    }
     // ======================================= End ======================================= //
     Recall_CIR_Enqueue();
 }
@@ -690,11 +778,39 @@ void Recall_CIR_Dequeue();
 void CIR_Dequeue()
 {
     // ====================================== Start ====================================== //
+    printf("\nBefore Circular Dequeue Operation:");
+    Print_CIR_Queue();
+
+    if (Front == -1)
+    {
+        printf("\n\nYou Cant't Dequeue Because Queue is Underflow !");
+    }
+    else
+    {
+        Data = Q[Front];
+
+        if (Front == Rear)
+        {
+            Front = -1;
+            Rear = -1;
+        }
+        else if (Front == N - 1)
+        {
+            Front = 0;
+        }
+        else
+        {
+            Front++;
+        }
+
+        printf("\nBefore Circular Dequeue Operation:");
+        Print_CIR_Queue();
+    }
     // ======================================= End ======================================= //
     Recall_CIR_Dequeue();
 }
-// --------------------------------------------------------- End: Circular Queue Functions --------------------------------------------------------- //
-// ------------------------------------------------------ Start: Doubly Ended Queue Functions ------------------------------------------------------ //
+// <---------------------------------------------------------| End: Circular Queue Functions |---------------------------------------------------------> //
+// <------------------------------------------------------| Start: Doubly Ended Queue Functions |------------------------------------------------------> //
 void DQ_Insert_Front()
 {
     // ====================================== Start ====================================== //
@@ -706,10 +822,12 @@ void DQ_Delet_Rear()
     // ====================================== Start ====================================== //
     // ======================================= End ======================================= //
 }
-// ------------------------------------------------------- End: Doubly Ended Queue Functions ------------------------------------------------------- //
-// ------------------------------------------------------------- End: Queue Functions -------------------------------------------------------------- //
+// <-------------------------------------------------------| End: Doubly Ended Queue Functions |-------------------------------------------------------> //
+// <-------------------------------------------------------------| End: Queue Functions |--------------------------------------------------------------> //
 
-// ------------------------------------------------------------- Start: Print Functions ------------------------------------------------------------ //
+// ***************************************************************************************************************************************************** //
+
+// <-------------------------------------------------------------| Start: Print Functions |------------------------------------------------------------> //
 
 // Print Array Elements
 void Print_Array()
@@ -732,8 +850,8 @@ void Print_Stack()
 // Print Simple Queue Elements
 void Print_Simple_Queue()
 {
-    printf("\nFront=%d", Front);
-    printf("\nRear=%d\n", Rear);
+    printf("\nFront = %d", Front);
+    printf("\nRear = %d\n", Rear);
     printf("Queue: ");
     for (int i = Front; i <= Rear; i++)
     {
@@ -744,9 +862,41 @@ void Print_Simple_Queue()
     }
 }
 
-// -------------------------------------------------------------- End: Print Functions -------------------------------------------------------------- //
+// Print Circular Queue Elements
+void Print_CIR_Queue()
+{
+    printf("\nFront=%d", Front);
+    printf("\nRear=%d\n", Rear);
+    printf("Queue: ");
+    i = Front;
+    for (i = Front; i >= -1; i++)
+    {
+        if (Front == -1)
+        {
+            printf("Empty");
+            break;
+        }
+        else
+        {
+            printf("%d ", Q[i]);
 
-// ------------------------------------------------------------ Start: Recall Functions ------------------------------------------------------------- //
+            if (i == Rear)
+            {
+                break;
+            }
+            else if (i == N - 1)
+            {
+                i = -1;
+            }
+        }
+    }
+}
+
+// <--------------------------------------------------------------| End: Print Functions |--------------------------------------------------------------> //
+
+// ****************************************************************************************************************************************************** //
+
+// <------------------------------------------------------------| Start: Recall Functions |-------------------------------------------------------------> //
 
 // Recall Traversal Function
 void Recall_Traversal()
@@ -1026,7 +1176,7 @@ void Recall_Enqueue()
 // Recall Dequeue Function
 void Recall_Dequeue()
 {
-    printf("\nYour Want To Dequeue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
+    printf("\n\nYour Want To Dequeue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
     scanf("%d", &a);
     switch (a)
     {
@@ -1051,7 +1201,7 @@ void Recall_Dequeue()
 // Recall Search in Queue Function
 void Recall_Search_Queue()
 {
-    printf("\nYour Want To Search Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
+    printf("\n\nYour Want To Search Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
     scanf("%d", &a);
     switch (a)
     {
@@ -1076,7 +1226,7 @@ void Recall_Search_Queue()
 // Recall Circular Enqueue Funtion
 void Recall_CIR_Enqueue()
 {
-    printf("\nYour Want To Circular Enqueue Queue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
+    printf("\n\nYour Want To Circular Enqueue Queue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
     scanf("%d", &a);
     switch (a)
     {
@@ -1101,7 +1251,7 @@ void Recall_CIR_Enqueue()
 // Recall Circular Dequeue Funtion
 void Recall_CIR_Dequeue()
 {
-    printf("\nYour Want To Circular Dequeue Queue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
+    printf("\n\nYour Want To Circular Dequeue Queue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
     scanf("%d", &a);
     switch (a)
     {
@@ -1123,4 +1273,6 @@ void Recall_CIR_Dequeue()
     }
 }
 
-// ------------------------------------------------------------- End: Recall Functions -------------------------------------------------------------- //
+// <-------------------------------------------------------------| End: Recall Functions |-------------------------------------------------------------> //
+
+// ***************************************************************************************************************************************************** //

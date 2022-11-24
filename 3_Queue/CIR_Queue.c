@@ -32,23 +32,24 @@ int main()
                 printf("\nRear=%d\n", Rear);
                 printf("Queue: ");
                 i = Front;
-                if (Front == -1)
+                for (i = Front; i >= -1; i++)
                 {
-                    printf("Empty");
-                }
-
-                for (i = Front; i > -1; i++)
-                {
-
-                    printf("%d ", Q[i]);
-
-                    if (i == Rear)
+                    if (Front == -1)
                     {
-                        break;
+                        printf("Empty");
                     }
-                    else if (i == N - 1)
+                    else
                     {
-                        i = -1;
+                        printf("%d ", Q[i]);
+
+                        if (i == Rear)
+                        {
+                            break;
+                        }
+                        else if (i == N - 1)
+                        {
+                            i = -1;
+                        }
                     }
                 }
 
