@@ -1,0 +1,70 @@
+// ***************************************************************************************************************************************************** //
+
+// <-------------------------------------------------------------| Start: Print Functions |------------------------------------------------------------> //
+
+// Print Array Elements
+void Print_Array()
+{
+    for (i = LB; i < UB; i++)
+    {
+        printf("%d ", A[i]);
+    }
+}
+
+// Print Stack Elements
+void Print_Stack()
+{
+    for (i = Tos; i >= 0; i--)
+    {
+        printf("%d\n", S[i]);
+    }
+}
+
+// Print Simple Queue Elements
+void Print_Simple_Queue()
+{
+    printf("\nFront = %d", Front);
+    printf("\nRear = %d\n", Rear);
+    printf("Queue: ");
+    for (int i = Front; i <= Rear; i++)
+    {
+        if (Rear == -1)
+            printf("Empty");
+        else
+            printf("%d ", Q[i]);
+    }
+}
+
+// Print Circular Queue Elements
+void Print_CIR_Queue()
+{
+    printf("\nFront=%d", Front);
+    printf("\nRear=%d\n", Rear);
+    printf("Queue: ");
+    i = Front;
+    for (i = Front; i >= -1; i++)
+    {
+        if (Front == -1)
+        {
+            printf("Empty");
+            break;
+        }
+        else
+        {
+            printf("%d ", Q[i]);
+
+            if (i == Rear)
+            {
+                break;
+            }
+            else if (i == N - 1)
+            {
+                i = -1;
+            }
+        }
+    }
+}
+
+// <--------------------------------------------------------------| End: Print Functions |--------------------------------------------------------------> //
+
+// ****************************************************************************************************************************************************** //
