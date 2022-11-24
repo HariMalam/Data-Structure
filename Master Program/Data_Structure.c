@@ -356,7 +356,7 @@ void Doubly_Ended_Queue()
 
     default:
         printf("\nPlease Select Valid Option !");
-        Circular_Queue();
+        Doubly_Ended_Queue();
         break;
     }
 }
@@ -811,16 +811,21 @@ void CIR_Dequeue()
 }
 // <---------------------------------------------------------| End: Circular Queue Functions |---------------------------------------------------------> //
 // <------------------------------------------------------| Start: Doubly Ended Queue Functions |------------------------------------------------------> //
+void Recall_DQ_Insert_Front();
 void DQ_Insert_Front()
 {
     // ====================================== Start ====================================== //
-    // ======================================= End ======================================= //
-}
 
+    // ======================================= End ======================================= //
+    Recall_DQ_Insert_Front();
+}
+void Recall_DQ_Delet_Rear();
 void DQ_Delet_Rear()
 {
     // ====================================== Start ====================================== //
+    
     // ======================================= End ======================================= //
+    Recall_DQ_Delet_Rear();
 }
 // <-------------------------------------------------------| End: Doubly Ended Queue Functions |-------------------------------------------------------> //
 // <-------------------------------------------------------------| End: Queue Functions |--------------------------------------------------------------> //
@@ -1269,6 +1274,56 @@ void Recall_CIR_Dequeue()
     default:
         printf("\nPlease Select Valid Option !");
         Recall_CIR_Dequeue();
+        break;
+    }
+}
+
+// Recall Doubly Ended Insert Front Queue Function
+void Recall_DQ_Insert_Front()
+{
+    printf("\n\nYour Want To Insert In Front Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
+    scanf("%d", &a);
+    switch (a)
+    {
+    case 1:
+        DQ_Insert_Front();
+        break;
+    case 2:
+        Doubly_Ended_Queue();
+        break;
+    case 3:
+        main();
+        break;
+    case 0:
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_DQ_Insert_Front();
+        break;
+    }
+}
+
+// Recall Doubly Ended Delet From Rear Queue Function
+void Recall_DQ_Delet_Rear()
+{
+    printf("\n\nYour Want To Delet From Rear Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
+    scanf("%d", &a);
+    switch (a)
+    {
+    case 1:
+        DQ_Delet_Rear();
+        break;
+    case 2:
+        Doubly_Ended_Queue();
+        break;
+    case 3:
+        main();
+        break;
+    case 0:
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_DQ_Delet_Rear();
         break;
     }
 }
