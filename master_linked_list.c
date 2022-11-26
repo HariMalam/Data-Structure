@@ -147,7 +147,7 @@ int CDcount;
 
 int main()
 {
-	char ch;
+	int c=0;
 
 	Singlystart = (struct Singlylist *)malloc(sizeof(struct Singlylist));
 	Singlystart->next = NULL;
@@ -158,31 +158,31 @@ int main()
 	CDstart = (struct CDlist *)malloc(sizeof(struct CDlist));
 	CDstart->next = NULL;
 
-	while (ch != 'e')
+	while (c != 5)
 	{
 		printf("\n ----------- Linked List -----------");
-		printf("\n a. Singly Linked List");
-		printf("\n b. Circular Singly Linked List");
-		printf("\n c. Doubly Linked List");
-		printf("\n d. Circular Doubly Linked List");
-		printf("\n e. Exit");
+		printf("\n 1. Singly Linked List");
+		printf("\n 2. Circular Singly Linked List");
+		printf("\n 3. Doubly Linked List");
+		printf("\n 4. Circular Doubly Linked List");
+		printf("\n 5. Exit");
 		printf("\n ----------- Linked List -----------\n");
 
-		printf("\n Enter Your Choice (a/b/c/d/e) = ");
-		scanf("%c", &ch);
+		printf("\n Enter Your Choice (1/2/3/4/5) = ");
+		scanf("%d", &c);
 
-		switch (ch)
+		switch (c)
 		{
-		case 'a':
+		case 1:
 			singlyList();
 			break;
-		case 'b':
+		case 2:
 			circularSinglyList();
 			break;
-		case 'c':
+		case 3:
 			doublyList();
 			break;
-		case 'd':
+		case 4:
 			circularDoublyList();
 			break;
 		default:
@@ -192,15 +192,13 @@ int main()
 		}
 	}
 
-	fflush(stdin);
-
 	getch();
 	return (0);
 }
 
 void singlyList()
 {
-	int choice;
+	int choice=0;
 
 	while (choice < 19)
 	{
@@ -225,11 +223,7 @@ void singlyList()
 		printf("\n 18. Exit ");
 		printf("\n 19. Back to Main Menu");
 		printf("\n----------- Singly Linked List -----------\n\n");
-
-		fflush(stdin);
-
 		printf("Enter Your Choice = ");
-
 		scanf("%d", &choice);
 
 		switch (choice)
@@ -304,7 +298,7 @@ void singlyList()
 
 void circularSinglyList()
 {
-	int ch;
+	int ch=0;
 
 	while (ch < 19)
 	{
@@ -406,7 +400,7 @@ void circularSinglyList()
 
 void doublyList()
 {
-	int ch;
+	int ch=0;
 
 	while (ch < 19)
 	{
@@ -507,7 +501,7 @@ void doublyList()
 
 void circularDoublyList()
 {
-	int ch;
+	int ch=0;
 
 	while (ch < 19)
 	{

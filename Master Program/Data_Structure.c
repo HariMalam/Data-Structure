@@ -1,4 +1,58 @@
 #include <stdio.h>
+void Data_Structure_Master();
+char cases;
+int a;
+
+int main()
+{
+    printf("\n<---------------| Data Structure Master Program |-------------->\n");
+    printf("\n<------------------| Developed by Malam Hari |----------------->\n");
+    Data_Structure_Master();
+    printf(" \nExit...");
+    return 0;
+}
+
+// ***************************************************************************************************************************************************** //
+void Linear();
+void Non_Linear();
+
+// Data Structure Master Program
+void Data_Structure_Master()
+{
+
+    printf("\n------------------ Main -------------------");
+    printf("\n(1) Linear Data Structure\n(2) Non Linear Data Structure\n(*) Exit\n");
+    printf("------------------ Main -------------------\n");
+
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+
+    switch (cases)
+    {
+    // Linear Data Structure
+    case '1':
+        Linear();
+        break;
+
+    // Non Linear Data Structure
+    case '2':
+        Non_Linear();
+        break;
+
+    // Exit
+    case '*':
+        break;
+
+    // Invalid Option
+    default:
+        printf("\nPlease Select Valid Option !");
+        Data_Structure_Master();
+        break;
+    }
+}
+
+// ***************************************************************************************************************************************************** //
+
 void Array();
 void Stack();
 void Queue();
@@ -8,21 +62,21 @@ int A[1000], Data, POS, LB, UB;
 int S[1000], Tos, N;
 int Q[1000], Front, Rear;
 int i;
-int a;
 
-// ******************************************************************************************************************************************************** //
-
-// <--------------------------------------------------------------------| Start: Main |-------------------------------------------------------------------> //
-int main()
+// Linear Data Structure
+void Linear()
 {
-    printf("\nSelect Option For Operation:\n");
-    printf("1.Array\n2.Stack\n3.Queue\n4.Link_List\n0.Close\n");
-    scanf("%d", &a);
+    printf("\n---------- Linear Data Structure ----------\n");
+    printf("(1) Array\n(2) Stack\n(3) Queue\n(4) Link_List\n");
+    printf("(0) Back to Main Menu\n(*) Exit\n");
+    printf("---------- Linear Data Structure ----------\n");
 
-    switch (a)
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
     {
     // Array Operations
-    case 1:
+    case '1':
         LB = 0;
         UB = 0;
         printf("\nEnter Size Of Array: ");
@@ -31,7 +85,7 @@ int main()
         break;
 
     // Stack Operations
-    case 2:
+    case '2':
         Tos = -1;
         printf("\nEnter Size Of Stack: ");
         scanf("%d", &N);
@@ -39,7 +93,7 @@ int main()
         break;
 
     // QUEUE Operations
-    case 3:
+    case '3':
         Front = -1;
         Rear = -1;
         printf("\nEnter Size Of Queue: ");
@@ -48,27 +102,24 @@ int main()
         break;
 
     // Link List Operations
-    case 4:
+    case '4':
         Link_List();
         break;
+    case '0':
+        Data_Structure_Master();
+        break;
 
-    case 0:
+    case '*':
         break;
 
     default:
         printf("\nPlease Select Valid Option !");
-        main();
+        Linear();
         break;
     }
-
-    return 0;
 }
 
-// <--------------------------------------------------------------------| End: Main |------------------------------------------------------------------> //
-
 // ***************************************************************************************************************************************************** //
-
-// <------------------------------------------------------------------| Start: Array |-----------------------------------------------------------------> //
 
 // (1) Array Funcitons
 
@@ -79,50 +130,58 @@ void Linear_Search();
 void Binary_Search();
 void Sort_Array();
 void Print_Array();
+void Only_Sort_Array();
 
 void Array()
 {
-    printf("\nSelect Option For Operations in Array: \n");
-    printf("1.Traversal\n2.Insersion\n3.Deletion\n4.Linear Search\n5.Binary Search\n6.Sort_Array\n7.Back\n0.Close\n");
-    scanf("%d", &a);
+    printf("\n------------------ Array ------------------\n");
+    printf("(1) Traversal\n(2) Insersion\n(3) Deletion\n(4) Linear Search\n(5) Binary Search\n(6) Sort Array\n");
+    printf("(0) Back to Previous Menu\n(.) Back to Manin Menu\n(*) Exit\n");
+    printf("------------------ Array ------------------\n");
 
-    switch (a)
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
     {
     // Traversal
-    case 1:
+    case '1':
         Traversal();
         break;
 
     // Insersion
-    case 2:
+    case '2':
         Insersion();
         break;
 
     // Deletion
-    case 3:
+    case '3':
         Deletion();
         break;
 
     // Linear Search
-    case 4:
+    case '4':
         Linear_Search();
         break;
 
     // Binary Search
-    case 5:
+    case '5':
         Binary_Search();
         break;
 
     // Sort Array
-    case 6:
+    case '6':
         Sort_Array();
         break;
 
-    case 7:
-        main();
+    case '0':
+        Linear();
         break;
 
-    case 0:
+    case '.':
+        Data_Structure_Master();
+        break;
+
+    case '*':
         break;
 
     default:
@@ -132,9 +191,415 @@ void Array()
     }
 }
 
-// <-------------------------------------------------------------------| End: Array |-------------------------------------------------------------------> //
+// <-------------------------------------------------------------| Start: Array Functions |-------------------------------------------------------------> //
 
-// <------------------------------------------------------------------| Start: Stack |------------------------------------------------------------------> //
+// Print Array Elements
+void Print_Array()
+{
+    for (i = LB; i < UB; i++)
+    {
+        printf("%d ", A[i]);
+    }
+}
+
+// Sorting Array
+void Only_Sort_Array()
+{
+    for (int j = 0; j < UB; j++)
+    {
+        for (i = j + 1; i < UB; i++)
+        {
+            if (A[j] >= A[i])
+            {
+                int temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+        }
+    }
+}
+
+// Traversal Funciton
+void Recall_Traversal();
+void Traversal()
+{
+    // ====================================== Start ====================================== //
+    if (UB == 0)
+    {
+        printf("\nArray is Empty !");
+    }
+    else
+    {
+        printf("\nTraversing Array:\n");
+        Print_Array();
+    }
+    // ======================================= End ======================================= //
+    Recall_Traversal();
+}
+
+// Insersion Funciton
+void Recall_Insersion();
+void Insersion()
+{
+    // ====================================== Start ====================================== //
+    if (UB == N)
+    {
+        printf("\nYou Can't Insert Element Because Array is Full !");
+    }
+    else
+    {
+        printf("\nEnter Position Where You Want ot Insert (Condition: Position <= %d): ", UB);
+        scanf("%d", &POS);
+        if (POS <= UB)
+        {
+            printf("Enter Item You Want To Insert: ");
+            scanf("%d", &Data);
+
+            for (i = UB - 1; i >= POS; i--)
+            {
+                A[i + 1] = A[i];
+            }
+
+            A[POS] = Data;
+            UB = UB + 1;
+
+            printf("\nArray After Insersion:\n");
+            Print_Array();
+        }
+        else
+        {
+            printf("\nPlease Select Valid Option !");
+            Insersion();
+        }
+    }
+    // ======================================= End ======================================= //
+    Recall_Insersion();
+}
+
+// Deletion Funciton
+void Recall_Deletion();
+void Deletion()
+{
+    // ====================================== Start ====================================== //
+    if (UB == 0)
+    {
+        printf("\nYou Can't Delet Element Because Array is Empty !");
+    }
+    else
+    {
+        printf("\nArray Before Deletion:\n");
+        Print_Array();
+        printf("\nEnter Position Where You Want ot Delet (Condition: Position <= %d): ", UB);
+        scanf("%d", &POS);
+
+        if (POS <= UB)
+        {
+            for (i = POS; i < UB; i++)
+            {
+                A[i] = A[i + 1];
+            }
+
+            Data = A[POS];
+            UB = UB - 1;
+
+            printf("\nArray After Deletion:\n");
+            Print_Array();
+        }
+        else
+        {
+            printf("\nPlease Select Valid Option !");
+            Deletion();
+        }
+    }
+    // ======================================= End ======================================= //
+    Recall_Deletion();
+}
+
+// Linear Search Function
+void Recall_Linear_Search();
+void Linear_Search()
+{
+    // ====================================== Start ====================================== //
+    a = 0;
+    if (UB == 0)
+    {
+        printf("\nYou Can't Search Element Because Array is Empty !");
+    }
+    else
+    {
+        printf("\nArray Before Search:\n");
+        Print_Array();
+
+        printf("\nEnter Item You Want To Search: ");
+        scanf("%d", &Data);
+        for (i = 0; i < UB; i++)
+        {
+            if (A[i] == Data)
+            {
+                a = 0;
+                break;
+            }
+        }
+        if (a == 0)
+        {
+            printf("%d is Found in Array At Position: [%d]", Data, i);
+        }
+        else
+        {
+            printf("%d is Not Found in Array !!", Data);
+        }
+    }
+    // ======================================= End ======================================= //
+    Recall_Linear_Search();
+}
+
+// Binary Search Funciton
+void Recall_Binary_Search();
+void Binary_Search()
+{
+    // ====================================== Start ====================================== //
+    printf("\nArray Before Search:\n");
+    Print_Array();
+    Only_Sort_Array();
+    printf("\nEnter Item You Want To Search: ");
+    scanf("%d", &Data);
+
+    int beg = 0;
+    int end = N - 1;
+    int mid = 0;
+    a = 0;
+    while (beg <= end)
+    {
+        mid = (beg + end) / 2;
+
+        if (A[mid] < Data)
+        {
+            beg = mid + 1;
+        }
+        else if (A[mid] > Data)
+        {
+            end = mid - 1;
+        }
+
+        else if (A[mid] == Data)
+        {
+            a = -1;
+            break;
+        }
+    }
+    if (a == -1)
+    {
+        printf("\nArray Elements After Sorting Array: \n");
+        Print_Array();
+        printf("\n%d is Found in Sorted Array At Position: [%d]", Data, i);
+    }
+    else
+    {
+        printf("\n%d is Not Found in Array !!", Data);
+    }
+    // ======================================= End ======================================= //
+    Recall_Binary_Search();
+}
+
+// Sort Funciton
+void Recall_Sort_Array();
+void Sort_Array()
+{
+    // ====================================== Start ====================================== //
+    printf("\nArray Elements Before Shorting Array: \n");
+    Print_Array();
+    if (UB == 0)
+    {
+        printf("\nYou Can't Sort Array Because Array is Empty !");
+    }
+    else
+    {
+        Only_Sort_Array();
+        printf("\nArray Elements After Shorting Array: \n");
+        Print_Array();
+    }
+    // ======================================= End ======================================= //
+    Recall_Sort_Array();
+}
+
+// <--------------------------------------------------------------| End: Array Functions |--------------------------------------------------------------> //
+
+// <------------------------------------------------------------| Start: Recall Functions |-------------------------------------------------------------> //
+
+// Recall Traversal Function
+void Recall_Traversal()
+{
+    printf("\n\n------ You Want to Traversal Again ? ------\n");
+    printf("(1) Yes \n(0) Back to Previous Menu\n(.) Back to Main Menu\n(*) Exit\n");
+    printf("------ You Want to Traversal Again ? ------\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
+    {
+    case '1':
+        Traversal();
+        break;
+    case '0':
+        Array();
+        break;
+    case '.':
+        Data_Structure_Master();
+        break;
+    case '*':
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_Traversal();
+        break;
+    }
+}
+
+// Recall Insersion Function
+void Recall_Insersion()
+{
+    printf("\n\n------ You Want to Insersion Again ? ------\n");
+    printf("(1) Yes \n(0) Back to Previous Menu\n(.) Back to Main Menu\n(*) Exit\n");
+    printf("------ You Want to Insersion Again ? ------\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
+    {
+    case '1':
+        Insersion();
+        break;
+    case '0':
+        Array();
+        break;
+    case '.':
+        Data_Structure_Master();
+        break;
+    case '*':
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_Insersion();
+        break;
+    }
+}
+
+// Recall Deletion Function
+void Recall_Deletion()
+{
+    printf("\n\n------- You Want to Deletion Again ? ------\n");
+    printf("\n\nYou Want To Deletion Again ?\n");
+    printf("(1) Yes \n(0) Back to Previous Menu\n(.) Back to Main Menu\n(*) Exit\n");
+    printf("\n\n------- You Want to Deletion Again ? ------\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
+    {
+    case '1':
+        Deletion();
+        break;
+    case '0':
+        Array();
+        break;
+    case '.':
+        Data_Structure_Master();
+        break;
+    case '*':
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_Deletion();
+        break;
+    }
+}
+
+// Recall Linear Search Funciton
+void Recall_Linear_Search()
+{
+    printf("\n\n---- You Want to Linear Search Again ? ----\n");
+    printf("(1) Yes \n(0) Back to Previous Menu\n(.) Back to Main Menu\n(*) Exit\n");
+    printf("---- You Want to Linear Search Again ? ----\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
+    {
+    case '1':
+        Linear_Search();
+        break;
+    case '0':
+        Array();
+        break;
+    case '.':
+        Data_Structure_Master();
+        break;
+    case '*':
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_Linear_Search();
+        break;
+    }
+}
+
+// Recall Binary Search Funciton
+void Recall_Binary_Search()
+{
+    printf("\n\n---- You Want to Binary Search Again ? ----\n");
+    printf("(1) Yes \n(0) Back to Previous Menu\n(.) Back to Main Menu\n(*) Exit\n");
+    printf("---- You Want to Binary Search Again ? ----\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+
+    switch (cases)
+    {
+    case '1':
+        Binary_Search();
+        break;
+    case '0':
+        Array();
+        break;
+    case '.':
+        Data_Structure_Master();
+        break;
+    case '*':
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_Binary_Search();
+        break;
+    }
+}
+
+// Recall Sort Funciton
+void Recall_Sort_Array()
+{
+    printf("\n\n----- You Want to Sort Array Again ? ------\n");
+    printf("(1) Yes \n(0) Back to Previous Menu\n(.) Back to Main Menu\n(*) Exit\n");
+    printf("\n\n----- You Want to Sort Array Again ? ------\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+
+    switch (cases)
+    {
+    case '1':
+        Sort_Array();
+        break;
+    case '0':
+        Array();
+        break;
+    case '.':
+        Data_Structure_Master();
+        break;
+    case '*':
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_Sort_Array();
+        break;
+    }
+}
+
+// <-------------------------------------------------------------| End: Recall Functions |--------------------------------------------------------------> //
+
+// ***************************************************************************************************************************************************** //
 
 // (2) Stack Funcitons
 
@@ -146,37 +611,44 @@ void Print_Stack();
 
 void Stack()
 {
-    printf("\nSelect Option For Operation In Stack:\n");
-    printf("1.PUSH\n2.POP\n3.PEEP\n4.PEEK\n5.Back\n0.Close\n");
-    scanf("%d", &a);
+    printf("\n------------------ Stack ------------------\n");
+    printf("(1) Push\n(2) Pop\n(3) Peep\n(4) Peek\n");
+    printf("(0) Back to Previous Menu\n(.) Back to Manin Menu\n(*) Exit\n");
+    printf("\n------------------ Stack ------------------\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
 
-    switch (a)
+    switch (cases)
     {
     // PUSH Operation
-    case 1:
+    case '1':
         Push();
         break;
 
     // POP Operation
-    case 2:
+    case '2':
         Pop();
         break;
 
     // PEEP Operation
-    case 3:
+    case '3':
         Peep();
         break;
 
     // PEEK Operation
-    case 4:
+    case '4':
         Peek();
         break;
 
-    case 5:
-        main();
+    case '0':
+        Linear();
         break;
 
-    case 0:
+    case '.':
+        Data_Structure_Master();
+        break;
+
+    case '*':
         break;
 
     default:
@@ -199,32 +671,39 @@ void Print_Queue();
 
 void Queue()
 {
-    printf("\nSelect Option For Operation In Queue:\n");
-    printf("1.Simple Queue\n2.Circular Queue\n3.Doubly Ended Queue\n4.Back\n0.Close\n");
-    scanf("%d", &a);
+    printf("\n------------------ Queue ------------------\n");
+    printf("(1) Simple Queue\n(2) Circular Queue\n(3) Doubly Ended Queue\n");
+    printf("(0) Back to Previous Menu\n(.) Back to Manin Menu\n(*) Exit\n");
+    printf("------------------ Queue ------------------\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
 
-    switch (a)
+    switch (cases)
     {
-    // Simple Queue Operations
-    case 1:
+    // Simple Queue
+    case '1':
         Simple_Queue();
         break;
 
-        // Circular Queue Operations
-    case 2:
+    // Circular Queue
+    case '2':
         Circular_Queue();
         break;
 
-    // Doubly Ended Queue Operations
-    case 3:
+    // Doubly Ended Queue
+    case '3':
         Doubly_Ended_Queue();
         break;
 
-    case 4:
-        main();
+    case '0':
+        Linear();
         break;
 
-    case 0:
+    case '.':
+        Data_Structure_Master();
+        break;
+
+    case '*':
         break;
 
     default:
@@ -375,155 +854,6 @@ void Link_List()
 // <-----------------------------------------------------------------| Endt: Link List |----------------------------------------------------------------> //
 
 // ****************************************************************************************************************************************************** //
-
-// <-------------------------------------------------------------| Start: Array Functions |-------------------------------------------------------------> //
-
-// Traversal Funciton
-void Recall_Traversal();
-void Traversal()
-{
-    // ====================================== Start ====================================== //
-    if (UB == 0)
-    {
-        printf("\nArray is Empty !");
-    }
-    else
-    {
-        printf("\nTraversing Array:\n");
-        Print_Array();
-    }
-    // ======================================= End ======================================= //
-    Recall_Traversal();
-}
-
-// Insersion Funciton
-void Recall_Insersion();
-void Insersion()
-{
-    // ====================================== Start ====================================== //
-    if (UB == N)
-    {
-        printf("\nYou Can't Insert Element Because Array is Full !");
-    }
-    else
-    {
-        printf("\nEnter Position Where You Want ot Insert (Condition: Position <= %d): ", UB);
-        scanf("%d", &POS);
-        printf("Enter Item You Want To Insert: ");
-        scanf("%d", &Data);
-
-        for (i = UB - 1; i >= POS; i--)
-        {
-            A[i + 1] = A[i];
-        }
-
-        A[POS] = Data;
-        UB = UB + 1;
-
-        printf("\nArray After Insersion:\n");
-        Print_Array();
-    }
-    // ======================================= End ======================================= //
-    Recall_Insersion();
-}
-
-// Deletion Funciton
-void Recall_Deletion();
-void Deletion()
-{
-    // ====================================== Start ====================================== //
-    if (UB == 0)
-    {
-        printf("\nYou Can't Delet Element Because Array is Empty !");
-    }
-    else
-    {
-        printf("\nEnter Position Where You Want ot Delet (Condition: POS <= %d): ", UB);
-        scanf("%d", &POS);
-
-        for (i = POS; i < UB; i++)
-        {
-            A[i] = A[i + 1];
-        }
-
-        Data = A[POS];
-        UB = UB - 1;
-
-        printf("\nArray After Deletion:\n");
-        Print_Array();
-    }
-    // ======================================= End ======================================= //
-    Recall_Deletion();
-}
-
-// Linear Search Function
-void Recall_Linear_Search();
-void Linear_Search()
-{
-    // ====================================== Start ====================================== //
-    if (UB == 0)
-    {
-        printf("\nYou Can't Search Element Because Array is Empty !");
-    }
-    else
-    {
-
-        printf("\nEnter Item You Want To Search: ");
-        scanf("%d", &Data);
-        for (i = 0; i < UB; i++)
-        {
-            if (A[i] == Data)
-            {
-                a = 0;
-                break;
-            }
-        }
-        if (a == 0)
-        {
-            printf("Match Found At POS[%d]", i);
-        }
-        else
-        {
-            printf("Match Not Found !!");
-        }
-    }
-    // ======================================= End ======================================= //
-    Recall_Linear_Search();
-}
-
-// Binary Search Funciton
-void Recall_Binary_Search();
-void Binary_Search()
-{
-    // ====================================== Start ====================================== //
-    if (UB == 0)
-    {
-        printf("\nYou Can't Search Element Because Array is Empty !");
-    }
-    else
-    {
-    }
-    // ======================================= End ======================================= //
-    Recall_Binary_Search();
-}
-
-// Sort Funciton
-void Recall_Sort_Array();
-void Sort_Array()
-{
-    // ====================================== Start ====================================== //
-    if (UB == 0)
-    {
-        printf("\nYou Can't Sort Array Because Array is Empty !");
-    }
-    else
-    {
-    }
-    // ======================================= End ======================================= //
-    Recall_Sort_Array();
-}
-
-// <--------------------------------------------------------------| End: Array Functions |--------------------------------------------------------------> //
 
 // <-------------------------------------------------------------| Start: Stack Functions |-------------------------------------------------------------> //
 
@@ -842,15 +1172,6 @@ void DQ_Delet_Rear()
 
 // <-------------------------------------------------------------| Start: Print Functions |------------------------------------------------------------> //
 
-// Print Array Elements
-void Print_Array()
-{
-    for (i = LB; i < UB; i++)
-    {
-        printf("%d ", A[i]);
-    }
-}
-
 // Print Stack Elements
 void Print_Stack()
 {
@@ -893,158 +1214,6 @@ void Print_Queue()
 // <--------------------------------------------------------------| End: Print Functions |--------------------------------------------------------------> //
 
 // ****************************************************************************************************************************************************** //
-
-// <------------------------------------------------------------| Start: Recall Functions |-------------------------------------------------------------> //
-
-// Recall Traversal Function
-void Recall_Traversal()
-{
-    printf("\n\nYou Want To Traversal Again ? \n1.Yes \n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
-    {
-    case 1:
-        Traversal();
-        break;
-    case 2:
-        Array();
-        break;
-    case 3:
-        main();
-        break;
-    case 0:
-        break;
-    default:
-        printf("\nPlease Select Valid Option !");
-        Recall_Traversal();
-        break;
-    }
-}
-
-// Recall Insersion Function
-void Recall_Insersion()
-{
-    printf("\n\nYou Want To Insersion Again ? \n1.Yes \n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
-    {
-    case 1:
-        Insersion();
-        break;
-    case 2:
-        Array();
-        break;
-    case 3:
-        main();
-        break;
-    case 0:
-        break;
-    default:
-        printf("\nPlease Select Valid Option !");
-        Recall_Insersion();
-        break;
-    }
-}
-
-// Recall Deletion Function
-void Recall_Deletion()
-{
-    printf("\n\nYou Want To Deletion Again ? \n1.Yes \n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
-    {
-    case 1:
-        Deletion();
-        break;
-    case 2:
-        Array();
-        break;
-    case 3:
-        main();
-        break;
-    case 0:
-        break;
-    default:
-        printf("\nPlease Select Valid Option !");
-        Recall_Deletion();
-        break;
-    }
-}
-
-// Recall Linear Search Funciton
-void Recall_Linear_Search()
-{
-    printf("\n\nYou Want To Linear Search Again ? \n1.Yes \n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
-    {
-    case 1:
-        Linear_Search();
-        break;
-    case 2:
-        Array();
-        break;
-    case 3:
-        main();
-        break;
-    case 0:
-        break;
-    default:
-        printf("\nPlease Select Valid Option !");
-        Recall_Linear_Search();
-        break;
-    }
-}
-
-// Recall Binary Search Funciton
-void Recall_Binary_Search()
-{
-    printf("\nYour Want To Binary Search Again ? \n1.Yes \n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
-    {
-    case 1:
-        Binary_Search();
-        break;
-    case 2:
-        Array();
-        break;
-    case 3:
-        main();
-        break;
-    case 0:
-        break;
-    default:
-        printf("\nPlease Select Valid Option !");
-        Recall_Binary_Search();
-        break;
-    }
-}
-
-// Recall Sort Funciton
-void Recall_Sort_Array()
-{
-    printf("\nYour Want To Sort Array Again ? \n1.Yes \n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
-    {
-    case 1:
-        Sort_Array();
-        break;
-    case 2:
-        Array();
-        break;
-    case 3:
-        main();
-        break;
-    case 0:
-        break;
-    default:
-        printf("\nPlease Select Valid Option !");
-        Recall_Sort_Array();
-        break;
-    }
-}
 
 // Recall Push Function
 void Recall_Push()
@@ -1324,3 +1493,13 @@ void Recall_DQ_Delet_Rear()
 // <-------------------------------------------------------------| End: Recall Functions |-------------------------------------------------------------> //
 
 // ***************************************************************************************************************************************************** //
+
+// ***************************************************************************************************************************************************** //
+
+// Non Linear Data Structure
+void Non_Linear()
+{
+    printf("\n-------- Non Linear Data Structure --------\n");
+    printf("1. Array\n2. Stack\n3. Queue\n4. Link_List\n0. Back to Main Menu\n*. Exit\n");
+    printf("\n-------- Non Linear Data Structure --------\n");
+}
