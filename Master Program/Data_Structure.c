@@ -211,10 +211,10 @@ void Print_Array()
     }
     else
     {
-        printf("---------");
+        printf("--------");
         for (i = LB; i < UB; i++)
         {
-            printf("----", A[i]);
+            printf("-----", A[i]);
         }
 
         printf("\nArray: |");
@@ -222,10 +222,10 @@ void Print_Array()
         {
             printf(" %d |", A[i]);
         }
-        printf("\n---------");
+        printf("\n--------");
         for (i = LB; i < UB; i++)
         {
-            printf("----", A[i]);
+            printf("-----", A[i]);
         }
         printf("\n");
     }
@@ -267,7 +267,7 @@ void Insersion()
     // ====================================== Start ====================================== //
     if (UB == N)
     {
-        printf("\nYou Can't Insert Element Because Array is Full !\n");
+        printf("\n--> You Can't Insert Element Because Array is Full !\n");
     }
     else
     {
@@ -317,7 +317,7 @@ void Deletion()
     // ====================================== Start ====================================== //
     if (UB == 0)
     {
-        printf("\nYou Can't Delet Element Because Array is Empty !");
+        printf("\n--> You Can't Delet Element Because Array is Empty !\n");
     }
     else
     {
@@ -362,7 +362,7 @@ void Linear_Search()
     a = 1;
     if (UB == 0)
     {
-        printf("\nYou Can't Search Element Because Array is Empty !");
+        printf("\n--> You Can't Search Element Because Array is Empty !");
     }
     else
     {
@@ -381,11 +381,11 @@ void Linear_Search()
         }
         if (a == 0)
         {
-            printf("\n%d is Found in Array At Position: [%d]", Data, i);
+            printf("\n--> %d is Found in Array At Position: [%d]", Data, i);
         }
         else
         {
-            printf("\n%d is Not Found in Array !!", Data);
+            printf("\n--> %d is Not Found in Array !!", Data);
         }
     }
     // ======================================= End ======================================= //
@@ -397,44 +397,54 @@ void Recall_Binary_Search();
 void Binary_Search()
 {
     // ====================================== Start ====================================== //
-    printf("\nArray Elements Before Search:\n");
-    Print_Array();
-    Only_Sort_Array();
-    printf("\nEnter Item You Want To Search: ");
-    scanf("%d", &Data);
-
-    int beg = 0;
-    int end = N - 1;
-    int mid = 0;
-    a = 0;
-    while (beg <= end)
+    if (UB == 0)
     {
-        mid = (beg + end) / 2;
-
-        if (A[mid] < Data)
-        {
-            beg = mid + 1;
-        }
-        else if (A[mid] > Data)
-        {
-            end = mid - 1;
-        }
-
-        else if (A[mid] == Data)
-        {
-            a = 1;
-            break;
-        }
-    }
-    if (a == 1)
-    {
-        printf("\nArray Elements After Shorting Array: \n");
-        Print_Array();
-        printf("\n%d is Found in Sorted Array At Position: [%d]", Data, mid);
+        printf("\n--> You Can't Search Element Because Array is Empty !");
     }
     else
     {
-        printf("\n%d is Not Found in Array !!", Data);
+        printf("\nArray Elements Before Search:\n");
+        Print_Array();
+
+        Only_Sort_Array();
+
+        printf("\nEnter Item You Want To Search: ");
+        scanf("%d", &Data);
+
+        int beg = 0;
+        int end = N - 1;
+        int mid = 0;
+        a = 0;
+        while (beg <= end)
+        {
+            mid = (beg + end) / 2;
+
+            if (A[mid] < Data)
+            {
+                beg = mid + 1;
+            }
+            else if (A[mid] > Data)
+            {
+                end = mid - 1;
+            }
+
+            else if (A[mid] == Data)
+            {
+                a = 1;
+                break;
+            }
+        }
+        if (a == 1)
+        {
+            printf("\nArray Elements After Shorting Array: \n");
+            Print_Array();
+
+            printf("\n--> %d is Found in Sorted Array At Position: [%d]", Data, mid);
+        }
+        else
+        {
+            printf("\n--> %d is Not Found in Array !!", Data);
+        }
     }
     // ======================================= End ======================================= //
     Recall_Binary_Search();
@@ -445,16 +455,18 @@ void Recall_Sort_Array();
 void Sort_Array()
 {
     // ====================================== Start ====================================== //
-    printf("\nArray Elements Before Shorting Array: \n");
-    Print_Array();
     if (UB == 0)
     {
         printf("\nYou Can't Sort Array Because Array is Empty !");
     }
     else
     {
+        printf("\nArray Elements Before Shorting Array: \n");
+        Print_Array();
+
         Only_Sort_Array();
-        printf("\nArray Elements After Shorting Array: \n");
+
+        printf("\n--> Array Elements After Shorting Array: \n");
         Print_Array();
     }
     // ======================================= End ======================================= //
@@ -700,23 +712,26 @@ void Stack()
     }
 }
 
-// <-------------------------------------------------------------| Start: Stack Functions |-------------------------------------------------------------> //
+// <----------------------------------------------------------| Start: Print Stack Functions |----------------------------------------------------------> //
 
-// Print Stack Elements
 void Print_Stack()
 {
     if (Tos == -1)
     {
-        printf(">>Stack:\n");
+        printf("--> Stack :\n\n");
 
         printf("|---------------|\n");
-        printf("|    Empty !\t|\n");
+        printf("|    Empty !\t| <-- TOS [%d]\n", Tos);
         printf("|_______________|\n");
     }
     else
     {
-        printf(">>Stack:\n");
-        for (i = Tos; i >= 0; i--)
+        printf("--> Stack :\n\n");
+        i = Tos;
+        printf("|---------------|\n");
+        printf("|\t%d\t| <-- TOS [%d]\n", S[i], Tos);
+
+        for (i = Tos - 1; i >= 0; i--)
         {
             printf("|---------------|\n");
             printf("|\t%d\t|\n", S[i]);
@@ -725,6 +740,9 @@ void Print_Stack()
     }
 }
 
+// <-----------------------------------------------------------| End: Print Stack Functions |-----------------------------------------------------------> //
+
+// <-------------------------------------------------------------| Start: Stack Functions |-------------------------------------------------------------> //
 // Push Function
 void Recall_Push();
 void Push()
@@ -733,7 +751,7 @@ void Push()
 
     if (Tos >= N - 1)
     {
-        printf("\nYou Can't Push Element Because Stack Overflow !\n");
+        printf("\n--> You Can't Push Element Because Stack Overflow !\n");
     }
     else
     {
@@ -761,17 +779,17 @@ void Pop()
     // ====================================== Start ====================================== //
     if (Tos <= -1)
     {
-        printf("\nYou Can't Pop Element Because Stack is Underflow");
+        printf("\n--> You Can't Pop Element Because Stack is Underflow");
     }
     else
     {
         printf("\nStack Before Pop Operation: \n");
         Print_Stack();
 
-        printf("\nDeleted Element is %d\n", S[Tos]);
         Tos--;
         printf("\nStack After Pop Operation: \n");
         Print_Stack();
+        printf("\n--> Deleted Element is %d\n", S[Tos + 1]);
     }
     // ======================================= End ======================================= //
     Recall_Pop();
@@ -784,7 +802,7 @@ void Peep()
     // ====================================== Start ====================================== //
     if (Tos <= -1)
     {
-        printf("\nYou Can't Peep Element Because Stack is Underflow");
+        printf("\n--> You Can't Peep Element Because Stack is Underflow");
     }
     else
     {
@@ -803,11 +821,11 @@ void Peep()
         }
         if (a == 1)
         {
-            printf("\n%d is Found in Stack At Position: [%d]", Data, i);
+            printf("\n--> %d is Found in Stack At Position: [%d]", Data, i);
         }
         else
         {
-            printf("\n%d is Not Found in Stack !!", Data);
+            printf("\n--> %d is Not Found in Stack !!", Data);
         }
     }
     // ======================================= End ======================================= //
@@ -821,13 +839,13 @@ void Peek()
     // ====================================== Start ====================================== //
     if (Tos <= -1)
     {
-        printf("\nYou Can't Peek Element Because Stack is Underflow\n");
+        printf("\n--> You Can't Peek Element Because Stack is Underflow\n");
     }
     else
     {
         printf("\nStack Before Peek Operation: \n");
         Print_Stack();
-        printf("\nTop Most Element in Stack is %d\n", S[Tos]);
+        printf("\n--> Top Most Element in Stack is %d\n", S[Tos]);
     }
     // ======================================= End ======================================= //
     Recall_Peek();
@@ -869,7 +887,7 @@ void Recall_Push()
 // Recall Pop Function
 void Recall_Pop()
 {
-    printf("\n\nYour Want To Pop Again ?\n");
+    printf("\nYour Want To Pop Again ?\n");
     printf("(1) Yes         (2) No\n");
     printf("(.) Main Menu   (*) Exit\n");
     printf("\nEnter Your Choice: ");
@@ -1017,8 +1035,8 @@ void Queue()
 // Print Queue Elements
 void Print_Queue()
 {
-    printf("\n>>Front = %d\n", Front);
-    printf(">>Rear = %d\n", Rear);
+    printf("\n--> Front = %d\n", Front);
+    printf("--> Rear  = %d\n", Rear);
     i = Front;
     if (Front == -1)
     {
@@ -1031,7 +1049,7 @@ void Print_Queue()
     {
         for (i = Front; i >= -1; i++)
         {
-            printf("----");
+            printf("-----");
             if (i == Rear)
             {
                 break;
@@ -1041,11 +1059,10 @@ void Print_Queue()
                 i = -1;
             }
         }
-        printf("---------\n");
+        printf("--------\n");
         printf("Queue: |");
 
         int i = Front;
-        int N = 5;
         for (i = Front; i >= -1; i++)
         {
 
@@ -1060,10 +1077,10 @@ void Print_Queue()
                 i = -1;
             }
         }
-        printf("\n---------");
+        printf("\n--------");
         for (i = Front; i >= -1; i++)
         {
-            printf("----");
+            printf("-----");
 
             if (i == Rear)
             {
@@ -1079,6 +1096,8 @@ void Print_Queue()
 }
 
 // <-----------------------------------------------------------| End: Print Queue Functions |-----------------------------------------------------------> //
+
+// ****************************************************************************************************************************************************** //
 
 // <---------------------------------------------------------------| Start: Simple Queue |--------------------------------------------------------------> //
 
@@ -1131,7 +1150,6 @@ void Simple_Queue()
         break;
     }
 }
-// <----------------------------------------------------------------| End: Simple Queue |---------------------------------------------------------------> //
 
 // <----------------------------------------------------------| Start: Simple Queue Functions |---------------------------------------------------------> //
 
@@ -1142,7 +1160,7 @@ void Enqueue()
     // ====================================== Start ====================================== //
     if (Rear >= N - 1)
     {
-        printf("\nYou Can't Enqueue Element Because Queue is Overflow !");
+        printf("\n--> You Can't Enqueue Element Because Queue is Overflow !\n");
     }
     else
     {
@@ -1174,7 +1192,7 @@ void Dequeue()
     // ====================================== Start ====================================== //
     if (Front == -1)
     {
-        printf("\nYou Can't Dequeue Element Because Queue is Underflow !");
+        printf("\n--> You Can't Dequeue Element Because Queue is Underflow !\n");
     }
     else
     {
@@ -1203,16 +1221,15 @@ void Dequeue()
 void Recall_Search_Queue();
 void Search_Queue()
 {
-    Print_Queue();
     // ====================================== Start ====================================== //
     if (Front == -1)
     {
-        printf("\n\nYou Can't Search Element Because Queue is Underflow !");
+        printf("\n--> You Can't Search Element Because Queue is Underflow !\n");
     }
     else
     {
         Print_Queue();
-        printf("\n\nEnter Element You Want To Find From Above Queue: ");
+        printf("\nEnter Element You Want To Find From Above Queue: ");
         scanf("%d", &Data);
 
         for (i = Front; i <= Rear; i++)
@@ -1226,11 +1243,11 @@ void Search_Queue()
 
         if (a == 0)
         {
-            printf("Element Found in Queue At Rear Pointer: %d", i);
+            printf("\n--> %d is Found in Queue At Rear Pointer [%d]\n", Data, i);
         }
         else
         {
-            printf("Element Not Found in Queue !");
+            printf("\n--> %d is Not Found in Queue !\n", Data);
         }
     }
     // ======================================= End ======================================= //
@@ -1329,6 +1346,10 @@ void Recall_Search_Queue()
 
 // <-------------------------------------------------------| End: Recall Simple Queue Functions |------------------------------------------------------> //
 
+// <----------------------------------------------------------------| End: Simple Queue |---------------------------------------------------------------> //
+
+// ****************************************************************************************************************************************************** //
+
 // <--------------------------------------------------------------| Start: Circular Queue |-------------------------------------------------------------> //
 
 // Circular Queue Functions
@@ -1374,8 +1395,6 @@ void Circular_Queue()
     }
 }
 
-// <---------------------------------------------------------------| End: Circular Queue |--------------------------------------------------------------> //
-
 // <--------------------------------------------------------| Start: Circular Queue Functions |--------------------------------------------------------> //
 
 // Circular Enqueue Funtion
@@ -1386,13 +1405,13 @@ void CIR_Enqueue()
 
     if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
     {
-        printf("\n\nYou Can't Enqueue Because Queue is Overflow !");
+        printf("\n--> You Can't Enqueue Because Queue is Overflow !\n");
     }
     else
     {
         printf("\nBefore Circular Enqueue Operation:");
         Print_Queue();
-        printf("\n\nEnter Element You Want To Enqueue: ");
+        printf("\nEnter Element You Want To Enqueue: ");
         scanf("%d", &Data);
 
         if (Front == -1)
@@ -1426,7 +1445,7 @@ void CIR_Dequeue()
 
     if (Front == -1)
     {
-        printf("\n\nYou Cant't Dequeue Because Queue is Underflow !");
+        printf("\n--> You Cant't Dequeue Because Queue is Underflow !\n");
     }
     else
     {
@@ -1448,7 +1467,7 @@ void CIR_Dequeue()
             Front++;
         }
 
-        printf("\nBefore Circular Dequeue Operation:");
+        printf("\nAfter Circular Dequeue Operation:");
         Print_Queue();
     }
     // ======================================= End ======================================= //
@@ -1458,6 +1477,10 @@ void CIR_Dequeue()
 void Recall_Search_CIR_Queue();
 void Search_CIR_Queue()
 {
+    // ====================================== Start ====================================== //
+
+    // ======================================= End ======================================= //
+    Recall_Search_CIR_Queue();
 }
 
 // <---------------------------------------------------------| End: Circular Queue Functions |---------------------------------------------------------> //
@@ -1552,6 +1575,10 @@ void Recall_Search_CIR_Queue()
 
 // <------------------------------------------------------| End: Recall Circular Queue Functions |------------------------------------------------------> //
 
+// <---------------------------------------------------------------| End: Circular Queue |--------------------------------------------------------------> //
+
+// ****************************************************************************************************************************************************** //
+
 // <------------------------------------------------------------| Start: Doubly Ended Queue |-----------------------------------------------------------> //
 
 // Doubly Ended Queue Functions
@@ -1594,7 +1621,6 @@ void Doubly_Ended_Queue()
         break;
     }
 }
-// <-------------------------------------------------------------| End: Doubly Ended Queue |------------------------------------------------------------> //
 
 // <------------------------------------------------------| Start: Doubly Ended Queue Functions |------------------------------------------------------> //
 
@@ -1677,7 +1703,9 @@ void Recall_DQ_Delet_Rear()
     }
 }
 
-// <----------------------------------------------------| End: Recall Doubly Ended Queue Functions |---------------------------------------------------> //
+// <----------------------------------------------------| End: Recall Doubly Ended Queue Functions |----------------------------------------------------> //
+
+// <-------------------------------------------------------------| End: Doubly Ended Queue |------------------------------------------------------------> //
 
 // <-------------------------------------------------------------------| End: Queue |-------------------------------------------------------------------> //
 // ****************************************************************************************************************************************************** //
@@ -1688,7 +1716,7 @@ void Recall_DQ_Delet_Rear()
 // (4) Link List Functions
 void Link_List()
 {
-        printf("\n---------- Non Linear Data Structure ----------\n");
+    printf("\n---------- Non Linear Data Structure ----------\n");
     printf("\n(0) Previous Menu | (.) Manin Menu | (*) Exit");
     printf("\n-----------------------------------------------\n");
 
