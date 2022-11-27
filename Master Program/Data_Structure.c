@@ -10,13 +10,15 @@ char cases;
 
 int main()
 {
-    printf("\n        ._______________________________.");
-    printf("\n        |                               |");
-    printf("\n        | Data Structure Master Program |");
-    printf("\n        |-------------------------------|");
-    printf("\n        |    Developed by Malam Hari    |");
-    printf("\n        |         210160116051          |");
-    printf("\n        |_______________________________|\n\n");
+    printf("\n|---------------------------------------------|");
+    printf("\n|                                             |");
+    printf("\n|        Data Strcture Master Program         |");
+    printf("\n|                                             |");
+    printf("\n|---------------------------------------------|");
+    printf("\n|            Developed By Malam Hari          |");
+    printf("\n|                210160116051                 |");
+    printf("\n|---------------------------------------------|\n");
+
 
     Data_Structure_Master();
 
@@ -1719,7 +1721,7 @@ void Recall_DQ_Delet_Rear()
 // (4) Link List Functions
 void Link_List()
 {
-    printf("\n---------- Non Linear Data Structure ----------\n");
+    printf("\n------------------ Link List ------------------\n");
     printf("\n(0) Previous Menu | (.) Manin Menu | (*) Exit");
     printf("\n-----------------------------------------------\n");
 
@@ -1728,7 +1730,7 @@ void Link_List()
     switch (cases)
     {
     case '0':
-        Data_Structure_Master();
+        Linear();
         break;
 
     case '.':
@@ -1740,7 +1742,7 @@ void Link_List()
 
     default:
         printf("\nPlease Select Valid Option !");
-        Linear();
+        Link_List();
         break;
     }
 }
