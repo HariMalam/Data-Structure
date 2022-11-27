@@ -10,10 +10,13 @@ char cases;
 
 int main()
 {
-    printf("\n        |-------------------------------|");
+    printf("\n        ._______________________________.");
+    printf("\n        |                               |");
     printf("\n        | Data Structure Master Program |");
+    printf("\n        |-------------------------------|");
     printf("\n        |    Developed by Malam Hari    |");
-    printf("\n        |-------------------------------|\n\n");
+    printf("\n        |         210160116051          |");
+    printf("\n        |_______________________________|\n\n");
 
     Data_Structure_Master();
 
