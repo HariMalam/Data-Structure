@@ -29,7 +29,6 @@ void Non_Linear();
 void Data_Structure_Master()
 {
     printf("\n----------------- Main Munu -------------------");
-    // {    printf("\n__________________ Main Munu ____________________");
     printf("\n(1) Linear Data Structure\n(2) Non Linear Data Structure\n\n(*) Exit\n");
     printf("-----------------------------------------------\n");
 
@@ -1468,20 +1467,24 @@ void Search_CIR_Queue()
 // Recall Circular Enqueue Funtion
 void Recall_CIR_Enqueue()
 {
-    printf("\n\nYour Want To Circular Enqueue Queue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
+    printf("\nYour Want To Circular Enqueue Queue Again ?\n");
+    printf("(1) Yes         (2) No\n");
+    printf("(.) Main Menu   (*) Exit\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+
+    switch (cases)
     {
-    case 1:
+    case '1':
         CIR_Enqueue();
         break;
-    case 2:
+    case '2':
         Circular_Queue();
         break;
-    case 3:
-        main();
+    case '.':
+        Data_Structure_Master();
         break;
-    case 0:
+    case '*':
         break;
     default:
         printf("\nPlease Select Valid Option !");
@@ -1493,20 +1496,24 @@ void Recall_CIR_Enqueue()
 // Recall Circular Dequeue Funtion
 void Recall_CIR_Dequeue()
 {
-    printf("\n\nYour Want To Circular Dequeue Queue Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
+    printf("\nYour Want To Circular Dequeue Queue Again ?\n");
+    printf("(1) Yes         (2) No\n");
+    printf("(.) Main Menu   (*) Exit\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+
+    switch (cases)
     {
-    case 1:
+    case '1':
         CIR_Dequeue();
         break;
-    case 2:
+    case '2':
         Circular_Queue();
         break;
-    case 3:
-        main();
+    case '.':
+        Data_Structure_Master();
         break;
-    case 0:
+    case '*':
         break;
     default:
         printf("\nPlease Select Valid Option !");
@@ -1517,6 +1524,30 @@ void Recall_CIR_Dequeue()
 
 void Recall_Search_CIR_Queue()
 {
+    printf("\nYour Want To Search in Circular Queue Again ?\n");
+    printf("(1) Yes         (2) No\n");
+    printf("(.) Main Menu   (*) Exit\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+
+    switch (cases)
+    {
+    case '1':
+        Search_CIR_Queue();
+        break;
+    case '2':
+        Circular_Queue();
+        break;
+    case '.':
+        Data_Structure_Master();
+        break;
+    case '*':
+        break;
+    default:
+        printf("\nPlease Select Valid Option !");
+        Recall_Search_CIR_Queue();
+        break;
+    }
 }
 
 // <------------------------------------------------------| End: Recall Circular Queue Functions |------------------------------------------------------> //
@@ -1592,20 +1623,23 @@ void DQ_Delet_Rear()
 // Recall Doubly Ended Insert Front Queue Function
 void Recall_DQ_Insert_Front()
 {
-    printf("\n\nYour Want To Insert In Front Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
+    printf("\n\nYour Want To Insert In Front Again ?\n");
+    printf("(1) Yes         (2) No\n");
+    printf("(.) Main Menu   (*) Exit\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
     {
-    case 1:
+    case '1':
         DQ_Insert_Front();
         break;
-    case 2:
+    case '2':
         Doubly_Ended_Queue();
         break;
-    case 3:
-        main();
+    case '.':
+        Data_Structure_Master();
         break;
-    case 0:
+    case '*':
         break;
     default:
         printf("\nPlease Select Valid Option !");
@@ -1617,20 +1651,24 @@ void Recall_DQ_Insert_Front()
 // Recall Doubly Ended Delet From Rear Queue Function
 void Recall_DQ_Delet_Rear()
 {
-    printf("\n\nYour Want To Delet From Rear Again ? \n1.Yes\n2.Back\n3.Main\n0.Close\n");
-    scanf("%d", &a);
-    switch (a)
+    printf("\nYour Want To Delet From Rear Again ?\n");
+    printf("(1) Yes         (2) No\n");
+    printf("(.) Main Menu   (*) Exit\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+
+    switch (cases)
     {
-    case 1:
+    case '1':
         DQ_Delet_Rear();
         break;
-    case 2:
+    case '2':
         Doubly_Ended_Queue();
         break;
-    case 3:
-        main();
+    case '.':
+        Data_Structure_Master();
         break;
-    case 0:
+    case '*':
         break;
     default:
         printf("\nPlease Select Valid Option !");
@@ -1666,14 +1704,19 @@ void Link_List()
 // Non Linear Data Structure
 void Non_Linear()
 {
-    printf("\n-------- Non Linear Data Structure --------\n");
-    printf("(0) Back to Main Menu\n(*) Exit\n");
-    printf("-------- Non Linear Data Structure --------\n");
+    printf("\n---------- Non Linear Data Structure ----------\n");
+    printf("\n(0) Previous Menu | (.) Manin Menu | (*) Exit");
+    printf("\n-----------------------------------------------\n");
+
     printf("\nEnter Your Choice: ");
     scanf("%s", &cases);
     switch (cases)
     {
     case '0':
+        Data_Structure_Master();
+        break;
+
+    case '.':
         Data_Structure_Master();
         break;
 
