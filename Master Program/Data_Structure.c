@@ -1688,6 +1688,30 @@ void Recall_DQ_Delet_Rear()
 // (4) Link List Functions
 void Link_List()
 {
+        printf("\n---------- Non Linear Data Structure ----------\n");
+    printf("\n(0) Previous Menu | (.) Manin Menu | (*) Exit");
+    printf("\n-----------------------------------------------\n");
+
+    printf("\nEnter Your Choice: ");
+    scanf("%s", &cases);
+    switch (cases)
+    {
+    case '0':
+        Data_Structure_Master();
+        break;
+
+    case '.':
+        Data_Structure_Master();
+        break;
+
+    case '*':
+        break;
+
+    default:
+        printf("\nPlease Select Valid Option !");
+        Linear();
+        break;
+    }
 }
 
 // <-----------------------------------------------------------------| Endt: Link List |----------------------------------------------------------------> //
