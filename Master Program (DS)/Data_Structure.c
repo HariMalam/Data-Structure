@@ -10,15 +10,17 @@ char cases;
 
 int main()
 {
-    printf("\n|---------------------------------------------|");
+    printf("\n _____________________________________________");
     printf("\n|                                             |");
     printf("\n|        Data Strcture Master Program         |");
     printf("\n|                                             |");
-    printf("\n|---------------------------------------------|");
+    printf("\n|_____________________________________________|");
     printf("\n|            Developed By Malam Hari          |");
-    printf("\n|                210160116051                 |");
-    printf("\n|---------------------------------------------|\n");
-
+    printf("\n|_____________________________________________|");
+    printf("\n|    IT    |    210160116051    |    Sem 3    |");
+    printf("\n|__________|____________________|_____________|");
+    printf("\n|   7824080686    |    malamharid@gmail.com   |");
+    printf("\n|_________________|___________________________|\n\n");
 
     Data_Structure_Master();
 
@@ -27,10 +29,11 @@ int main()
     return 0;
 }
 
+// Data Structure Master Program
+
 void Linear();
 void Non_Linear();
 
-// Data Structure Master Program
 void Data_Structure_Master()
 {
     printf("\n----------------- Main Munu -------------------");
@@ -78,17 +81,17 @@ void Linear()
 {
     printf("\n------------ Linear Data Structure ------------\n");
     printf("(1) Array\n(2) Stack\n(3) Queue\n(4) Link_List\n");
-    printf("\n(0) Previous Menu | (.) Manin Menu | (*) Exit");
+    printf("\n(0) Previous Menu | (*) Exit");
     printf("\n-----------------------------------------------\n");
 
     printf("\nEnter Your Choice: ");
     scanf("%s", &cases);
     switch (cases)
     {
+
     // Array Operations
     case '1':
-        LB = 0;
-        UB = 0;
+        LB = UB = 0;
         printf("\nEnter Size Of Array: ");
         scanf("%d", &N);
         Array();
@@ -104,8 +107,7 @@ void Linear()
 
     // QUEUE Operations
     case '3':
-        Front = -1;
-        Rear = -1;
+        Front = Rear = -1;
         printf("\nEnter Size Of Queue: ");
         scanf("%d", &N);
         Queue();
@@ -119,9 +121,7 @@ void Linear()
     case '0':
         Data_Structure_Master();
         break;
-    case '.':
-        Data_Structure_Master();
-        break;
+
     case '*':
         break;
 
@@ -155,6 +155,7 @@ void Array()
     scanf("%s", &cases);
     switch (cases)
     {
+        
     // Traversal
     case '1':
         Traversal();
@@ -219,7 +220,12 @@ void Print_Array()
         printf("--------");
         for (i = LB; i < UB; i++)
         {
-            printf("-----", A[i]);
+            if (A[i] > 99)
+                printf("------");
+            else if (A[i] > 9)
+                printf("-----");
+            else
+                printf("----");
         }
 
         printf("\nArray: |");
@@ -230,7 +236,12 @@ void Print_Array()
         printf("\n--------");
         for (i = LB; i < UB; i++)
         {
-            printf("-----", A[i]);
+            if (A[i] > 99)
+                printf("------");
+            else if (A[i] > 9)
+                printf("-----");
+            else
+                printf("----");
         }
         printf("\n");
     }
@@ -1054,7 +1065,12 @@ void Print_Queue()
     {
         for (i = Front; i >= -1; i++)
         {
-            printf("-----");
+            if (Q[i] > 99)
+                printf("------");
+            else if (Q[i] > 9)
+                printf("-----");
+            else
+                printf("----");
             if (i == Rear)
             {
                 break;
@@ -1085,7 +1101,12 @@ void Print_Queue()
         printf("\n--------");
         for (i = Front; i >= -1; i++)
         {
-            printf("-----");
+            if (Q[i] > 99)
+                printf("------");
+            else if (Q[i] > 9)
+                printf("-----");
+            else
+                printf("----");
 
             if (i == Rear)
             {
@@ -1762,7 +1783,7 @@ void Link_List()
 void Non_Linear()
 {
     printf("\n---------- Non Linear Data Structure ----------\n");
-    printf("\n(0) Previous Menu | (.) Manin Menu | (*) Exit");
+    printf("\n(0) Previous Menu | (*) Exit");
     printf("\n-----------------------------------------------\n");
 
     printf("\nEnter Your Choice: ");
@@ -1770,10 +1791,6 @@ void Non_Linear()
     switch (cases)
     {
     case '0':
-        Data_Structure_Master();
-        break;
-
-    case '.':
         Data_Structure_Master();
         break;
 
