@@ -681,6 +681,7 @@ void Print_Stack();
 
 void Stack()
 {
+    Print_Stack();
     printf("\n-------------------- Stack --------------------\n");
     printf("(1) Push\n(2) Pop\n(3) Peep\n(4) Peek\n");
     printf("\n(0) Previous Menu | (.) Manin Menu | (*) Exit");
@@ -732,27 +733,28 @@ void Stack()
 
 void Print_Stack()
 {
+    printf("\n+---------------+\n");
+    printf("|    [Stack]    |\n");
+    printf("+---------------+\n");
     if (Tos == -1)
     {
-        printf("--> Stack :\n\n");
 
-        printf("|---------------|\n");
-        printf("|    Empty !\t| <-- TOS [%d]\n", Tos);
-        printf("|_______________|\n");
+        printf("+---------------+\n");
+        printf("|    Empty !    | <-- TOS [%d]\n", Tos);
+        printf("+---------------+\n");
     }
     else
     {
-        printf("--> Stack :\n\n");
         i = Tos;
-        printf("|---------------|\n");
+        printf("+---------------+\n");
         printf("|\t%d\t| <-- TOS [%d]\n", S[i], Tos);
 
         for (i = Tos - 1; i >= 0; i--)
         {
-            printf("|---------------|\n");
+            printf("+---------------+\n");
             printf("|\t%d\t|\n", S[i]);
         }
-        printf("|_______________|\n");
+        printf("+---------------+\n");
     }
 }
 
@@ -767,12 +769,12 @@ void Push()
 
     if (Tos >= N - 1)
     {
-        printf("\n--> You Can't Push Element Because Stack Overflow !\n");
+        printf("\n[ You Can't Push Element Because Stack Overflow ! ]\n");
     }
     else
     {
-        printf("\nStack Before Push Operation:\n");
         Print_Stack();
+        printf("[Stack Before Push Operation]\n");
 
         printf("\nEnter New Element: ");
         scanf("%d", &Data);
@@ -781,8 +783,8 @@ void Push()
 
         S[Tos] = Data;
 
-        printf("\nStack After Push Operation:\n");
         Print_Stack();
+        printf("[Stack After Push Operation]\n");
     }
     // ======================================= End ======================================= //
     Recall_Push();
@@ -795,17 +797,16 @@ void Pop()
     // ====================================== Start ====================================== //
     if (Tos <= -1)
     {
-        printf("\n--> You Can't Pop Element Because Stack is Underflow");
+        printf("\n[ You Can't Pop Element Because Stack is Underflow ! ]");
     }
     else
     {
-        printf("\nStack Before Pop Operation: \n");
-        Print_Stack();
-
         Tos--;
-        printf("\nStack After Pop Operation: \n");
+
         Print_Stack();
-        printf("\n--> Deleted Element is %d\n", S[Tos + 1]);
+        printf("[Stack After Pop Operation]\n");
+
+        printf("[ Deleted Element is %d ]\n", S[Tos + 1]);
     }
     // ======================================= End ======================================= //
     Recall_Pop();
@@ -855,13 +856,11 @@ void Peek()
     // ====================================== Start ====================================== //
     if (Tos <= -1)
     {
-        printf("\n--> You Can't Peek Element Because Stack is Underflow\n");
+        printf("\n[ You Can't Peek Element Because Stack is Underflow ! ]\n");
     }
     else
     {
-        printf("\nStack Before Peek Operation: \n");
-        Print_Stack();
-        printf("\n--> Top Most Element in Stack is %d\n", S[Tos]);
+        printf("\n[ Top Most Element in Stack is %d ]\n", S[Tos]);
     }
     // ======================================= End ======================================= //
     Recall_Peek();
@@ -1680,7 +1679,7 @@ void DQ_Delet_Rear()
     // ====================================== Start ====================================== //
     printf("\nBefore DQ Delete Rear Operation:");
     Print_Queue();
-    
+
     if (Rear == -1)
     {
         printf("\nQueue is Underflow !");
