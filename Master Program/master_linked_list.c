@@ -116,7 +116,7 @@ struct Singlylist
 struct Singlylist *Singlystart, *Singlynode;
 int Singlycount = 0;
 
-// circular singly linked lis
+// circular singly linked list
 struct Clist
 {
 	int info;
@@ -147,7 +147,7 @@ int CDcount;
 
 int main()
 {
-	int c=0;
+	int c = 0;
 
 	Singlystart = (struct Singlylist *)malloc(sizeof(struct Singlylist));
 	Singlystart->next = NULL;
@@ -157,6 +157,7 @@ int main()
 	Dstart->next = NULL;
 	CDstart = (struct CDlist *)malloc(sizeof(struct CDlist));
 	CDstart->next = NULL;
+
 
 	while (c != 5)
 	{
@@ -198,7 +199,7 @@ int main()
 
 void singlyList()
 {
-	int choice=0;
+	int choice = 0;
 
 	while (choice < 19)
 	{
@@ -298,7 +299,7 @@ void singlyList()
 
 void circularSinglyList()
 {
-	int ch=0;
+	int ch = 0;
 
 	while (ch < 19)
 	{
@@ -400,7 +401,7 @@ void circularSinglyList()
 
 void doublyList()
 {
-	int ch=0;
+	int ch = 0;
 
 	while (ch < 19)
 	{
@@ -501,7 +502,7 @@ void doublyList()
 
 void circularDoublyList()
 {
-	int ch=0;
+	int ch = 0;
 
 	while (ch < 19)
 	{

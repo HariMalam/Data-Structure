@@ -1,36 +1,36 @@
 #include <stdio.h>
 int main()
 {
-    // S: Stack, Top: Current Pointer, N: Size Of Stack, Data: New Element to be Added
-    int S[1000], Top = -1, N, Data;
+    // S    : Name of Stack
+    // TOS  : Current Pointer
+    // N    : Size Of Stack
+    // Data : New Element to be Added
 
-    // Get input for size of stack
-    printf("Enter Size Of Stack[Max:1000]: ");
-    scanf("%d", &N);
+    int S[10], TOS = -1, N = 10, Data;
 
     // Check for Overflow Condition
-    if (Top >= N - 1)
+    if (TOS >= N - 1)
     {
         printf("Stack Overflow");
     }
 
     else
     {
-        // Get input for New Element
+        // Get input for New Element that you want of push
         printf("Enter New Element: ");
         scanf("%d", &Data);
 
-        // Updating Top Pointer
-        Top++;
+        // Increment TOS Pointer
+        TOS = TOS + 1;
 
         // Putting New Element in the stack
-        S[Top] = Data;
+        S[TOS] = Data;
+    }
 
-        printf("\nStack After PUSH Operation:\n");
-        for (int i = Top; i >= 0; i--)
-        {
-            printf("%d\n", S[i]);
-        }
+    printf("\nStack After PUSH Operation:\n");
+    for (int i = TOS; i >= 0; i--)
+    {
+        printf("%d\n", S[i]);
     }
     return 0;
 }

@@ -155,7 +155,7 @@ void Array()
     scanf("%s", &cases);
     switch (cases)
     {
-        
+
     // Traversal
     case '1':
         Traversal();
@@ -1654,7 +1654,22 @@ void Recall_DQ_Insert_Front();
 void DQ_Insert_Front()
 {
     // ====================================== Start ====================================== //
+    printf("\nBefore DQ Insert Front Operation:");
+    Print_Queue();
 
+    if (Front <= 0)
+    {
+        printf("\nQueue is Overflow !");
+    }
+    else
+    {
+        printf("\n\nEnter Element You Want To ENQUEUE: ");
+        scanf("%d", &Data);
+        Front--;
+        Q[Front] = Data;
+    }
+    printf("\nAfter DQ Insert Front Operation:");
+    Print_Queue();
     // ======================================= End ======================================= //
     Recall_DQ_Insert_Front();
 }
@@ -1663,7 +1678,28 @@ void Recall_DQ_Delet_Rear();
 void DQ_Delet_Rear()
 {
     // ====================================== Start ====================================== //
-
+    printf("\nBefore DQ Delete Rear Operation:");
+    Print_Queue();
+    
+    if (Rear == -1)
+    {
+        printf("\nQueue is Underflow !");
+    }
+    else
+    {
+        Data = Q[Rear];
+        if (Front == Rear)
+        {
+            Front = -1;
+            Rear = -1;
+        }
+        else
+        {
+            Rear--;
+        }
+    }
+    printf("\nAfter DQ Delete Rear Operation:");
+    Print_Queue();
     // ======================================= End ======================================= //
     Recall_DQ_Delet_Rear();
 }

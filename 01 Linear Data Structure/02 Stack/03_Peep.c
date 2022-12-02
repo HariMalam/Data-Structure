@@ -1,42 +1,46 @@
 #include <stdio.h>
 int main()
 {
-    int S[100], Top, Data;
-    printf("Enter How Many Element You Want To Enter[Max:100]: ");
-    scanf("%d", &Top);
-    Top--;
+    // S    : Name of Stack
+    // TOS  : Current Pointer
+    // N    : Size Of Stack
+    // Data : Element that you want to find
 
-    int i;
-    for (i = 0; i <= Top; i++)
+    int S[10] = {10, 11, 12, 13}, TOS = 3, N = 10, Data;
+    int flag;
+
+    // check for Underflow condition
+    if (TOS <= -1)
     {
-        printf("Enter Element at Top[%d]: ", i);
-        scanf("%d", &S[i]);
+        printf("Stack is Underflow");
     }
 
-    int p;
+    else
     {
+        // Get input for Element that you want to find
         printf("Enter Element You Want To Find: ");
         scanf("%d", &Data);
-        for (int i = 0; i <= Top; i++)
+
+        // Read Data
+        for (int i = 0; i <= TOS; i++)
         {
             if (S[i] == Data)
             {
-                p = i;
-            }
-            else
-            {
-                p = 1;
+                flag = 1;
+                break;
             }
         }
-        if (p == 1)
+
+        // Condition for displaying element found or not found
+        if (flag == 1)
         {
-            printf("%d Element Doesn't Match in stack!\n", Data);
+            printf("\n%d is Found At Position(Pointer): %d", Data, flag);
         }
         else
         {
-            printf("Element Match in stack!\n");
-            printf("%d Found At Position(Pointer): %d", Data, p);
+            printf("\n%d is not Found in stack!\n", Data);
         }
     }
+
     return 0;
 }
