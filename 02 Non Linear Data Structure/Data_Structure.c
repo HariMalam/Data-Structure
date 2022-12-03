@@ -1,6 +1,6 @@
 #include<stdlib.h>
 #include <stdio.h>
-
+#include<conio.h>
 void Data_Structure_Master();
 
 int A[1000], Data, POS, LB, UB;
@@ -19,13 +19,13 @@ int main()
     printf("\n|---------------------------------------------|");
     printf("\n|            Developed By Malam Hari          |");
     printf("\n|---------------------------------------------|");
-    printf("\n|     210160116051     |      IT Sem - 3      |");
-    printf("\n|----------------------+----------------------|");
-    printf("\n| malamharid@gmail.com |      7824080686      |");
-    printf("\n+---------------------------------------------+\n\n");
+    // printf("\n|     210160116051     |      IT Sem - 3      |");
+    // printf("\n|----------------------+----------------------|");
+    // printf("\n| malamharid@gmail.com |      7824080686      |");
+    // printf("\n+---------------------------------------------+\n\n");
 
+    clrscr();
     Data_Structure_Master();
-
     printf("\nThanks For Executing My Program...");
     printf(" \nExit...");
     return 0;
