@@ -22,12 +22,8 @@ int main()
     }
 
     if (a == 1)
-    {
         printf("%d is Found At POS[%d]", item, i);
-    }
     else
-    {
         printf("%d is Not Found !", item);
-    }
     return 0;
 }

@@ -1,57 +1,41 @@
 #include <stdio.h>
 int main()
 {
-    int Q[100], Front = -1, Rear = -1, N, Data, i;
-    int p;
-    printf("Enter size of Queue: ");
-    scanf("%d", &N);
+    // Q     : Name of Queue
+    // Front : Current Front Pointer
+    // Rear  : Current Rear Pointer
+    // N     : Size Of Queue
+    // Data  : New Element to be Deleted
 
-    printf("Please Enter Number Of Elements You Want To Enter: ");
-    scanf("%d", &Rear);
-    Rear--;
+    int Q[10] = {10, 11, 12, 13}, Front = 0, Rear = 3, N = 10, Data;
+    int i, flag;
 
-    if (Rear < N)
+    // Check for Underflow Condition
+    if (Front == -1)
+        printf("\nQueue is Underflow !");
+    else
     {
-        for (int i = 0; i <= Rear; i++)
-        {
-            Front = 0;
-            printf("Enter Element: ");
-            scanf("%d", &Q[i]);
-        }
-
-        printf("Enter Element You Want To Find: ");
+        // Get input for New Element that you want to search
+        printf("Enter Element that you want to search: ");
         scanf("%d", &Data);
 
-        // Simple Search
-
-        if (Front == -1)
+        // Read all elements
+        for (i = Front; i <= Rear; i++)
         {
-            printf("Queue is Empty");
-        }
-        else
-        {
-            for (i = Front; i <= Rear; i++)
+            // Compare Every Elements with Data
+            if (Q[i] == Data)
             {
-
-                if (Q[i] == Data)
-                {
-                    p = 1;
-                    break;
-                }
+                flag = 1;
+                break;
             }
         }
-
-        if (p == 1)
-        {
-            printf("Element Found in Queue At Rear Pointer: %d", i);
-        }
-        else
-        {
-            printf("Element Not Found in Queue !");
-        }
     }
+
+    // Condition for displaying element found or not found
+    if (flag == 1)
+        printf("\n%d is Found in Queue At Rear Pointer: %d", Data, i);
     else
-        printf("Please Enter Valid Size Of Queue !");
+        printf("\n%d is Not Found in Queue !", Data);
 
     return 0;
 }

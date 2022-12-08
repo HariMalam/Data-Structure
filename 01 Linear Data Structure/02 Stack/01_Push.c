@@ -2,7 +2,7 @@
 int main()
 {
     // S    : Name of Stack
-    // TOS  : Current Pointer
+    // TOS  : Current Top Pointer
     // N    : Size Of Stack
     // Data : New Element to be Added
 
@@ -10,13 +10,11 @@ int main()
 
     // Check for Overflow Condition
     if (TOS >= N - 1)
-    {
         printf("Stack Overflow");
-    }
 
     else
     {
-        // Get input for New Element that you want of push
+        // Get input for New Element that you want to push
         printf("Enter New Element: ");
         scanf("%d", &Data);
 
@@ -27,10 +25,12 @@ int main()
         S[TOS] = Data;
     }
 
+    // Display Stack after push operation
     printf("\nStack After PUSH Operation:\n");
     for (int i = TOS; i >= 0; i--)
     {
         printf("%d\n", S[i]);
     }
+
     return 0;
 }

@@ -1,206 +1,169 @@
 #include <stdio.h>
 
-int main()
+void Stack();
+
+void Push();
+void Pop();
+void Peep();
+void Peek();
+
+int cases;
+int S[100], Tos = -1, N, Data;
+
+void main()
 {
-    int S[1000], Tos = -1, N, Data;
-    printf("Enter Size Of Stack[Max:1000]: ");
+    printf("\nEnter Size Of Stack: ");
     scanf("%d", &N);
 
-    int a, i, z = 1;
-    while (z == 1)
+    Stack();
+
+    printf("\nThanks For Executing My Program...");
+    printf(" \nExit...");
+}
+
+void Stack()
+{
+    printf("\n-------------------- Stack --------------------\n");
+    printf("(1) Push\n(2) Pop\n(3) Peep\n(4) Peek\n");
+    printf("\n(0) Exit");
+    printf("\n-----------------------------------------------\n");
+    printf("\nEnter Your Choice: ");
+    scanf("%d", &cases);
+
+    switch (cases)
     {
-        z = 0;
-        printf("\nSelect Option For Operation In Stack:\n");
-        printf("1.PUSH\n2.POP\n3.PEEP\n4.PEEK\n5.Close\n");
-        scanf("%d", &a);
-        if (a > 5 || a < 1)
+    // PUSH Operation
+    case 1:
+        Push();
+        break;
+
+    // POP Operation
+    case 2:
+        Pop();
+        break;
+
+    // PEEP Operation
+    case 3:
+        Peep();
+        break;
+
+    // PEEK Operation
+    case 4:
+        Peek();
+        break;
+
+    case 0:
+        break;
+
+    default:
+        printf("\nPlease Select Valid Option !");
+        Stack();
+        break;
+    }
+}
+
+// Print Stack
+void Print_Stack()
+{
+    if (Tos == -1)
+    {
+        printf("Empty !\n");
+    }
+    else
+    {
+        for (int i = Tos; i >= 0; i--)
         {
-            printf("\nPlease Select Valid Option !\n");
-            z = 1;
-        }
-        switch (a)
-        {
-
-        // PUSH Operation
-        case 1:
-            while (a == 1)
-            {
-
-                // START
-                if (Tos >= N - 1)
-                {
-                    printf("\nStack Overflow !");
-                }
-                else
-                {
-                    printf("\nEnter New Element: ");
-                    scanf("%d", &Data);
-                    Tos++;
-                    S[Tos] = Data;
-                    printf("\nStack After PUSH Operation:\n");
-                    for (i = Tos; i >= 0; i--)
-                    {
-                        printf("%d\n", S[i]);
-                    }
-                }
-                // END
-
-                a = 0;
-                while (a == 0)
-                {
-                    printf("\nYour Want To PUSH Again ? \n1.Yes \n2.Back\n3.Close\n");
-                    scanf("%d", &a);
-                    if (a == 1)
-                    {
-                        a = 1;
-                    }
-                    else if (a == 2)
-                    {
-                        a = 404;
-                        z = 1;
-                    }
-                    else if (a == 3)
-                    {
-                        a = 404;
-                    }
-                    else
-                    {
-                        printf("\nPlease Select Valid Option !");
-                        a = 0;
-                    }
-                }
-            }
-            break;
-
-        // POP Operation
-        case 2:
-            while (a == 2)
-            {
-
-                // START
-                if (Tos <= -1)
-                {
-                    printf("\nStack is Underflow");
-                }
-                else
-                {
-                    printf("\nDeleted Element is %d", S[Tos]);
-                    Tos--;
-                    printf("\nStack After POP Operation: \n");
-                    for (i = Tos; i >= 0; i--)
-                    {
-                        printf("%d\n", S[i]);
-                    }
-                }
-                // END
-
-                a = 0;
-                while (a == 0)
-                {
-                    printf("\nYour Want To POP Again ? \n1.Yes \n2.Back\n3.Close\n");
-                    scanf("%d", &a);
-                    if (a == 1)
-                    {
-
-                        a = 2;
-                    }
-                    else if (a == 2)
-                    {
-                        a = 404;
-                        z = 1;
-                    }
-                    else if (a == 3)
-                    {
-                        a = 404;
-                    }
-                    else
-                    {
-                        printf("\nPlease Select Valid Option !");
-                        a = 0;
-                    }
-                }
-            }
-            break;
-
-        // PEEP Operation
-        case 3:
-            while (a == 3)
-            {
-
-                // START
-                a = 0;
-                printf("\nEnter Element You Want To Find: ");
-                scanf("%d", &Data);
-                for (int i = 0; i <= Tos; i++)
-                {
-                    if (S[i] == Data)
-                    {
-                        a = i;
-                        break;
-                    }
-                    else
-                    {
-                        a = -1;
-                    }
-                }
-                if (a == -1)
-                {
-                    printf("\nElement %d Doesn't Match in stack!\n\n", Data);
-                }
-                else
-                {
-                    printf("\nElement %d Match in stack!\n", Data);
-                    printf("Found At Position(Pointer): %d\n\n", a);
-                }
-                // END
-
-                a = 0;
-                while (a == 0)
-                {
-                    printf("Your Want To PEEP Again ? \n1.Yes \n2.Back\n3.Close\n");
-                    scanf("%d", &a);
-                    if (a == 1)
-                    {
-                        a = 3;
-                    }
-                    else if (a == 2)
-                    {
-                        a = 404;
-                        z = 1;
-                    }
-                    else if (a == 3)
-                    {
-                        a = 404;
-                    }
-                    else
-                    {
-                        printf("\nPlease Select Valid Option !");
-                        a = 0;
-                    }
-                }
-            }
-            break;
-
-        // PEEK Operation
-        case 4:
-            // START
-            if (Tos <= -1)
-            {
-                printf("Stack is Underflow\n");
-            }
-            else
-            {
-                printf("\nTop Most Element in Stack is %d\n", S[Tos]);
-            }
-            // END
-
-            z = 1;
-            break;
-
-        default:
-            break;
+            printf("%d\n", S[i]);
         }
     }
+}
 
-    return 0;
+// Push Function
+void Push()
+{
+    if (Tos >= N - 1)
+    {
+        printf("\nYou Can't Push Element Because Stack Overflow !");
+    }
+    else
+    {
+        printf("\nStack Before Push Operation:\n");
+        Print_Stack();
+
+        printf("\nEnter New Element: ");
+        scanf("%d", &Data);
+
+        Tos++;
+
+        S[Tos] = Data;
+
+        printf("\nStack After Push Operation:\n");
+        Print_Stack();
+    }
+    Stack();
+}
+
+// Pop Function
+void Pop()
+{
+    if (Tos <= -1)
+    {
+        printf("\nYou Can't Pop Element Because Stack is Underflow  !");
+    }
+    else
+    {
+        printf("\nDeleted Element is %d \n", S[Tos]);
+
+        Tos--;
+
+        printf("\nStack After Pop Operation:\n");
+        Print_Stack();
+    }
+    Stack();
+}
+
+// Peep Function
+void Peep()
+{
+    if (Tos <= -1)
+    {
+        printf("\nYou Can't Peep Element Because Stack is Underflow !");
+    }
+    else
+    {
+        printf("\nStack Before Peep Operation: \n");
+        Print_Stack();
+
+        printf("\nEnter Element You Want To Find Form Above Stack: ");
+        scanf("%d", &Data);
+
+        int i, a = 0;
+        for (i = 0; i <= Tos; i++)
+        {
+            if (S[i] == Data)
+            {
+                a = 1;
+                break;
+            }
+        }
+        if (a == 1)
+            printf("\n%d is Found in Stack At Position: [%d]\n", Data, i);
+        else
+            printf("\n%d is Not Found in Stack !\n", Data);
+    }
+    Stack();
+}
+
+// Peek Function
+void Peek()
+{
+    if (Tos <= -1)
+    {
+        printf("\nYou Can't Peek Element Because Stack is Underflow ! \n");
+    }
+    else
+    {
+        printf("\nTop Most Element in Stack is %d\n", S[Tos]);
+    }
+    Stack();
 }

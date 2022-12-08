@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-char cases;
+int cases;
 int a, i;
 int A[100], Data, POS, N, LB = 0, UB = 0;
 
@@ -24,53 +24,52 @@ void Deletion();
 void Linear_Search();
 void Binary_Search();
 void Sort_Array();
-void Print_Array();
 
 // Array Function
 void Array()
 {
     printf("\n--------------------- Array --------------------");
     printf("\n(1) Traversal\n(2) Insersion\n(3) Deletion\n(4) Linear Search\n(5) Binary Search\n(6) Sort Array\n");
-    printf("\n(*) Exit");
+    printf("\n(0) Exit");
     printf("\n-----------------------------------------------\n");
-
+    fflush(stdin);
     printf("\nEnter Your Choice: ");
-    scanf("%s", &cases);
+    scanf("%d", &cases);
 
     switch (cases)
     {
 
     // Traversal
-    case '1':
+    case 1:
         Traversal();
         break;
 
     // Insersion
-    case '2':
+    case 2:
         Insersion();
         break;
 
     // Deletion
-    case '3':
+    case 3:
         Deletion();
         break;
 
     // Linear Search
-    case '4':
+    case 4:
         Linear_Search();
         break;
 
     // Binary Search
-    case '5':
+    case 5:
         Binary_Search();
         break;
 
     // Sort Array
-    case '6':
+    case 6:
         Sort_Array();
         break;
 
-    case '*':
+    case 0:
         break;
 
     default:
@@ -83,13 +82,13 @@ void Array()
 // Print Array Elements
 void Print_Array()
 {
+    printf("Array: ");
     if (UB == 0)
     {
-        printf("Array: Empty !\n");
+        printf("Empty !\n");
     }
     else
     {
-        printf("Array: ");
         for (i = LB; i < UB; i++)
         {
             printf("%d ", A[i]);
@@ -118,20 +117,11 @@ void Insersion()
         printf("\nArray Elements Before Insersion:\n");
         Print_Array();
 
-        i = 0;
-        while (i == 0)
+        do
         {
             printf("\nEnter Position Where You Want ot Insert (Condition: Position <= %d): ", UB);
             scanf("%d", &POS);
-            if (POS > UB)
-            {
-                printf("\nPlease Select Valid Option !");
-            }
-            else
-            {
-                i = 1;
-            }
-        }
+        } while (POS < UB || POS > LB);
 
         if (POS <= UB)
         {
@@ -165,20 +155,11 @@ void Deletion()
         printf("\nArray Elements Before Deletion:\n");
         Print_Array();
 
-        i = 0;
-        while (i == 0)
+        do
         {
-            printf("\nEnter Position Where You Want ot Delete (Condition: Position <= %d): ", UB - 1);
+            printf("\nEnter Position Where You Want ot Delete (Condition: Position <= %d): ", UB);
             scanf("%d", &POS);
-            if (POS > UB)
-            {
-                printf("\nPlease Select Valid Option !");
-            }
-            else
-            {
-                i = 1;
-            }
-        }
+        } while (POS < UB || POS > LB);
 
         for (i = POS; i < UB; i++)
         {
@@ -209,6 +190,7 @@ void Linear_Search()
 
         printf("\nEnter Item You Want To Search: ");
         scanf("%d", &Data);
+
         for (i = 0; i < UB; i++)
         {
             if (A[i] == Data)

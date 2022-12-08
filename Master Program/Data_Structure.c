@@ -1,4 +1,4 @@
-#include<stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 void Data_Structure_Master();
@@ -297,7 +297,7 @@ void Insersion()
         {
             printf("\nEnter Position Where You Want ot Insert (Condition: Position <= %d): ", UB);
             scanf("%d", &POS);
-            if (POS > UB)
+            if (POS > UB || POS<LB)
             {
                 printf("\nPlease Select Valid Option !");
             }
@@ -753,7 +753,7 @@ void Print_Stack()
 
         for (i = Tos - 1; i >= 0; i--)
         {
-            printf("+---------------+\n");
+            printf("|---------------|\n");
             printf("|\t%d\t|\n", S[i]);
         }
         printf("+---------------+\n");
