@@ -1,65 +1,45 @@
 #include <stdio.h>
 int main()
 {
-    int Q[100], Front = -1, Rear = -1, N, Data;
+    // Q     : Name of Queue
+    // Front : Current Front Pointer
+    // Rear  : Current Rear Pointer
+    // N     : Size Of Queue
+    // Data  : New Element to be Added
 
-    printf("Enter size of Queue: ");
-    scanf("%d", &N);
+    int Q[10] = {10, 11, 12, 13}, Front = 1, Rear = 3, N = 10, Data;
 
-    printf("Please Enter Number Of Elements You Want To Enter: ");
-    scanf("%d", &Rear);
-    Rear--;
-
-    if (Rear < N)
+    if (Front <= 0)
+        printf("\nYou Can't insert Front Because Queue is full form Fornt !");
+    else
     {
-        for (int i = 0; i <= Rear; i++)
-        {
-            Front = 0;
-            printf("Enter Element: ");
-            scanf("%d", &Q[i]);
-        }
+        // Get input for New Element that you want to insert Front
+        printf("\nEnter Element You Want To Insert Front: ");
+        scanf("%d", &Data);
 
-        printf("\nQueue Before ENQUEUE Operation:");
-        printf("\nFront=%d", Front);
-        printf("\nRear=%d\n", Rear);
-        printf("Queue: ");
-        for (int i = Front; i <= Rear; i++)
-        {
-            if (Rear == -1)
-                printf("Empty");
-            else
-                printf("%d ", Q[i]);
-        }
+        // Decrement Front Pointer
+        Front--;
 
-        // Start: Main ENQUEUE Logic
+        // Putting New Element in the Queue
+        Q[Front] = Data;
 
-        if (Front <= 0)
-        {
-            printf("\nQueue is Overflow !");
-        }
+        // Display Queue after Insert Front operation
+        printf("Queue After Insert Front Operation:\n");
+        if (Front == -1)
+            printf("Empty");
         else
         {
-            printf("\n\nEnter Element You Want To ENQUEUE: ");
-            scanf("%d", &Data);
-            Front++;
-            Q[Front] = Data;
-            // End: Main ENQUEUE Logic
-
-            printf("\nQueue After ENQUEUE Operation:");
-            printf("\nFront=%d", Front);
-            printf("\nRear=%d\n", Rear);
-            printf("Queue: ");
-            for (int i = Front; i <= Rear; i++)
+            for (int i = Front; i > -1; i++)
             {
-                if (Rear == -1)
-                    printf("Empty");
-                else
-                    printf("%d ", Q[i]);
+                printf("%d ", Q[i]);
+
+                if (i == Rear)
+                    break;
+                else if (i == N - 1)
+                    i = -1;
             }
         }
     }
-    else
-        printf("Please Enter Valid Size Of Queue !");
 
     return 0;
 }

@@ -15,7 +15,7 @@ int main()
 
     else
     {
-        // Get input for New Element that you want of enqueue
+        // Get input for New Element that you want to enqueue
         printf("\nEnter Element You Want To ENQUEUE: ");
         scanf("%d", &Data);
 
@@ -23,7 +23,7 @@ int main()
         if (Front = -1)
             Front = 0;
 
-        // Updating Rear Pointer
+        // Increment Rear Pointer
         Rear++;
 
         // Putting New Element in the Queue

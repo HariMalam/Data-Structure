@@ -17,6 +17,7 @@ void main()
     Simple_Queue();
 
     printf("\nThanks For Executing My Program...");
+    printf("Exit...");
 }
 
 void Simple_Queue()
