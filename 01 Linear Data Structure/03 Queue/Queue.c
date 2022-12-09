@@ -13,7 +13,7 @@ void main()
 {
     printf("\nEnter Size Of Queue: ");
     scanf("%d", &N);
-
+    
     Queue();
 
     printf("\nThanks For Executing My Program...");
