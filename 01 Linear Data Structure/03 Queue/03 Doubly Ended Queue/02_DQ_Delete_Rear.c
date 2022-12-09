@@ -25,7 +25,7 @@ int main()
         else
         Rear--;
 
-        // Display Queue after Delete Form Front operation
+        // Display Queue after Delete From Front operation
         printf("Queue After Insert Front Operation:\n");
         if (Front == -1)
             printf("Empty");
