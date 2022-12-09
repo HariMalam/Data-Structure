@@ -5,7 +5,7 @@ int main()
     // Front : Current Front Pointer
     // Rear  : Current Rear Pointer
     // N     : Size Of Queue
-    // Data  : New Element to be Deleted
+    // Data  : Element that you want to search
 
     int Q[10] = {10, 11, 12, 13}, Front = 0, Rear = 3, N = 10, Data;
     int i, flag;
@@ -19,7 +19,7 @@ int main()
         printf("Enter Element that you want to search: ");
         scanf("%d", &Data);
 
-        // Read all elements
+        // Read all elements of Queue
         for (i = Front; i <= Rear; i++)
         {
             // Compare Every Elements with Data

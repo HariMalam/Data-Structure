@@ -11,7 +11,7 @@ int cases;
 
 void main()
 {
-    printf("\nEnter Size Of Stack: ");
+    printf("\nEnter Size Of Queue: ");
     scanf("%d", &N);
 
     Simple_Queue();
@@ -144,7 +144,7 @@ void Dequeue()
 // Search in Queue Function
 void Search_Queue()
 {
-    int i, a;
+    int i, flag;
 
     if (Front == -1)
         printf("\nYou Can't Search Element Because Queue is Underflow !\n");
@@ -158,12 +158,12 @@ void Search_Queue()
         {
             if (Q[i] == Data)
             {
-                a = 0;
+                flag = 1;
                 break;
             }
         }
 
-        if (a == 0)
+        if (flag == 1)
         {
             printf("\n%d is Found in Queue At Rear Pointer [%d]\n", Data, i);
         }

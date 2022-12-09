@@ -1,105 +1,56 @@
 #include <stdio.h>
 int main()
 {
-    int Q[100], Front = -1, Rear = -1, N, Data, i;
+    // Q     : Name of Queue
+    // Front : Current Front Pointer
+    // Rear  : Current Rear Pointer
+    // N     : Size Of Queue
+    // Data  : New Element to be Added
 
-    printf("Enter size of Queue: ");
-    scanf("%d", &N);
+    int Q[10] = {10, 11, 12, 13}, Front = 0, Rear = 3, N = 10, Data;
 
-    printf("Please Enter Number Of Elements You Want To Enter: ");
-    scanf("%d", &Rear);
-    Rear--;
+    // Check for OVerflow condition
+    if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
+        printf("\n\nQueue is Overflow !");
 
-    if (Rear < N)
+    else
     {
-        for (int i = 0; i <= Rear; i++)
-        {
-            Front = 0;
-            printf("Enter Element: ");
-            scanf("%d", &Q[i]);
-        }
+        // Get input for New Element that you want of enqueue
+        printf("\n\nEnter Element You Want To CIR_ENQUEUE: ");
+        scanf("%d", &Data);
 
-        printf("\nQueue Before CIR_ENQUEUE Operation:");
-        printf("\nFront=%d", Front);
-        printf("\nRear=%d\n", Rear);
-        printf("Queue: ");
+        // (when Front = -1) Updating Front Pointer
         if (Front == -1)
-        {
+            Front = 0;
+
+        // (when Rear = Size-1) Updating Rear Pointer 
+        if (Rear == N - 1)
+            Rear = 0;
+
+        // (Otherwise) Increment Rear Pointer
+        else
+            Rear++;
+
+        // Putting New Element in the Queue
+        Q[Rear] = Data;
+
+        // Display Queue after circular enqueue operation
+        printf("\nQueue After CIR_ENQUEUE Operation:\n");
+        if (Front == -1)
             printf("Empty");
-        }
-
-        for (i = Front; i > -1; i++)
-        {
-
-            printf("%d ", Q[i]);
-
-            if (i == Rear)
-            {
-                break;
-            }
-            else if (i == N - 1)
-            {
-                i = -1;
-            }
-        }
-
-        // Start: CIR_ENQUEUE Main Logic
-
-        if ((Front == 0 && Rear == N - 1) || Rear == Front - 1) // (Rear + 1) % N == Front
-        {
-            printf("\n\nQueue is Overflow !");
-        }
         else
         {
-            printf("\n\nEnter Element You Want To CIR_ENQUEUE: ");
-            scanf("%d", &Data);
-
-            if (Front == -1)
+            for (int i = Front; i > -1; i++)
             {
-                Front = 0;
-            }
-
-            if (Rear == N - 1)
-            {
-                Rear = 0;
-            }
-            else
-            {
-                Rear++;
-            }
-
-            Q[Rear] = Data;
-
-            // END: CIR_ENQUEUE Main Logic
-
-            printf("\nQueue After CIR_ENQUEUE Operation:");
-            printf("\nFront=%d", Front);
-            printf("\nRear=%d\n", Rear);
-            printf("Queue: ");
-            i = Front;
-            if (Front == -1)
-            {
-                printf("Empty");
-            }
-
-            for (i = Front; i > -1; i++)
-            {
-
                 printf("%d ", Q[i]);
 
                 if (i == Rear)
-                {
                     break;
-                }
                 else if (i == N - 1)
-                {
                     i = -1;
-                }
             }
         }
     }
-    else
-        printf("Please Enter Valid Size Of Queue !");
 
     return 0;
 }

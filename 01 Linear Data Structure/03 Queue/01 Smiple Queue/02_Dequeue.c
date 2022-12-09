@@ -15,13 +15,14 @@ int main()
         printf("\nQueue is Underflow !");
     else
     {
-        // Store Element that will be deleted
+        // Save Element that will be deleted
         Data = Q[Front];
 
-        // if Front = Rear -> Set Front and rear Equal to -1
+        // (when Front = Rear) Set Front and rear Equal to -1
         if (Front == Rear)
             Front = Rear = -1;
-        // Otherwise Increment Front Pointer
+
+        // (Otherwise) Increment Front Pointer
         else
             Front++;
 
