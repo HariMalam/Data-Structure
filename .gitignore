@@ -1,2 +1,14 @@
 Extra/
 *.exe
+
+# Compiled files
+*.out
+test
+array
+stack
+queue
+data_structures
+singly
+circular
+doubly
+traversal
